@@ -6,7 +6,6 @@
   "nav": {
     "home": "Inicio",
     "logs": "Logs",
-    "stories": "Stories",
     "contact": "Contacto",
     "system": "SYS.ENSOR_LOGS_v1.0"
   },
@@ -86,24 +85,19 @@
   "logs": {
     "kicker": "> tail -f /var/log/ensor",
     "title": "Ensor Logs",
-    "subtitle": "Bitácora técnica: proyectos, errores y cómo los resolví.",
-    "read": "Leer log",
-    "empty": "No hay logs publicados todavía.",
-    "published": "Publicado",
-    "back": "← Volver a logs",
-    "category": "Categoría"
-  },
-  "stories": {
-    "kicker": "> cargar feed",
-    "title": "Stories",
-    "subtitle": "Unboxings, setups y revisiones rápidas en formato vertical.",
-    "watch": "Ver feed",
-    "empty": "No hay stories publicados todavía.",
+    "subtitle": "La bitácora: proyectos, unboxings, errores y cómo los resolví — en texto y en video.",
+    "read": "Abrir log",
+    "all": "Ver todos",
+    "video": "video",
+    "open": "Ver log",
     "prev": "Anterior",
     "next": "Siguiente",
     "mute": "Silenciar",
     "unmute": "Activar sonido",
-    "open": "Abrir story"
+    "empty": "No hay logs publicados todavía.",
+    "published": "Publicado",
+    "back": "← Volver a logs",
+    "category": "Categoría"
   },
   "contact": {
     "kicker": "> ./contactar.sh",

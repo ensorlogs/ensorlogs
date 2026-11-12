@@ -6,7 +6,6 @@
   "nav": {
     "home": "Home",
     "logs": "Logs",
-    "stories": "Stories",
     "contact": "Contact",
     "system": "SYS.ENSOR_LOGS_v1.0"
   },
@@ -86,24 +85,19 @@
   "logs": {
     "kicker": "> tail -f /var/log/ensor",
     "title": "Ensor Logs",
-    "subtitle": "Technical logbook: projects, failures and how I solved them.",
-    "read": "Read log",
-    "empty": "No logs published yet.",
-    "published": "Published",
-    "back": "← Back to logs",
-    "category": "Category"
-  },
-  "stories": {
-    "kicker": "> load feed",
-    "title": "Stories",
-    "subtitle": "Unboxings, setups and quick reviews in vertical format.",
-    "watch": "Watch feed",
-    "empty": "No stories published yet.",
+    "subtitle": "The logbook: projects, unboxings, failures and how I solved them — in text and video.",
+    "read": "Open log",
+    "all": "View all",
+    "video": "video",
+    "open": "View log",
     "prev": "Previous",
     "next": "Next",
     "mute": "Mute",
     "unmute": "Unmute",
-    "open": "Open story"
+    "empty": "No logs published yet.",
+    "published": "Published",
+    "back": "← Back to logs",
+    "category": "Category"
   },
   "contact": {
     "kicker": "> ./contact.sh",

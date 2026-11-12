@@ -6,7 +6,7 @@ Checklist para conectar los servicios y desplegar. Orden recomendado.
 
 1. Crea el proyecto en <https://supabase.com> → Project → New.
 2. **SQL Editor** → pega y ejecuta `supabase/migrations/0001_init.sql`
-   (crea `logs_posts`, `logs_stories`, políticas RLS y el bucket `stories-media`).
+   (crea la tabla `logs` unificada, políticas RLS y el bucket `stories-media`).
 3. **Authentication → Users → Add user** → crea tu usuario admin
    (email + password; desmarca "auto confirm" si quieres confirmar por correo).
 4. **Settings → API** → copia:
@@ -55,8 +55,8 @@ git push -u origin main
 
 - [ ] `/` muestra la habitación y los 5 hotspots abren sus ventanas
 - [ ] `/en` cambia todos los textos a inglés
-- [ ] `/logs` lista los posts de Supabase (no los seed)
-- [ ] `/admin` pide login → crear un post → aparece en `/logs`
-- [ ] Subir un video en `/admin/stories` → aparece en `/stories`
+- [ ] `/logs` lista los logs de Supabase (no los seed)
+- [ ] `/admin` pide login → crear un log → aparece en `/logs`
+- [ ] Crear un video log en `/admin/logs` → aparece en el feed vertical
 - [ ] El formulario envía correo real vía Brevo
 - [ ] `sitemap.xml` y `robots.txt` responden

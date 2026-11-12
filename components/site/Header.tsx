@@ -9,7 +9,6 @@ import LocaleSwitcher from "./LocaleSwitcher";
 const NAV_ITEMS = [
   { href: "/", key: "home" },
   { href: "/logs", key: "logs" },
-  { href: "/stories", key: "stories" },
   { href: "/#contact", key: "contact" },
 ] as const;
 

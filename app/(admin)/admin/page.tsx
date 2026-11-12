@@ -8,30 +8,36 @@ export default async function AdminPage() {
   if (!isSupabaseConfigured()) return <SupabaseNotice />;
 
   const supabase = await createClient();
-  const [{ count: posts }, { count: stories }] = await Promise.all([
-    supabase.from("logs_posts").select("*", { count: "exact", head: true }),
-    supabase.from("logs_stories").select("*", { count: "exact", head: true }),
+  const [{ count: logs }, { count: videos }] = await Promise.all([
+    supabase
+      .from("logs")
+      .select("*", { count: "exact", head: true })
+      .eq("type", "log"),
+    supabase
+      .from("logs")
+      .select("*", { count: "exact", head: true })
+      .eq("type", "story"),
   ]);
 
   return (
     <AdminShell>
       <h1 className="font-pixel mb-6 text-[0.7rem] text-amber">PANEL</h1>
       <div className="grid gap-4 sm:grid-cols-2">
-        <WindowFrame title="LOGS_POSTS.DB">
-          <p className="font-term text-4xl text-fg">{posts ?? 0}</p>
-          <p className="font-term text-lg text-dim">posts en la bitácora</p>
+        <WindowFrame title="LOGS.DB">
+          <p className="font-term text-4xl text-fg">{logs ?? 0}</p>
+          <p className="font-term text-lg text-dim">logs de texto</p>
           <Link
-            href="/admin/posts"
+            href="/admin/logs"
             className="font-term mt-3 inline-block text-lg text-amber underline decoration-dotted"
           >
             Gestionar →
           </Link>
         </WindowFrame>
-        <WindowFrame title="LOGS_STORIES.DB" accent="phosphor">
-          <p className="font-term text-4xl text-fg">{stories ?? 0}</p>
-          <p className="font-term text-lg text-dim">stories publicadas</p>
+        <WindowFrame title="VIDEOLOGS.DB" accent="phosphor">
+          <p className="font-term text-4xl text-fg">{videos ?? 0}</p>
+          <p className="font-term text-lg text-dim">video logs (feed vertical)</p>
           <Link
-            href="/admin/stories"
+            href="/admin/logs"
             className="font-term mt-3 inline-block text-lg text-phosphor underline decoration-dotted"
           >
             Gestionar →

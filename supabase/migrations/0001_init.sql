@@ -1,98 +1,65 @@
 -- Ensor.Logs — initial schema
 -- Run in Supabase SQL Editor or via `supabase db push`.
+-- One unified `logs` table: type 'log' = text entry, type 'story' = video log.
 
 -- ── Tables ──────────────────────────────────────────────────────────────────
 
-create table if not exists public.logs_posts (
-  id           uuid primary key default gen_random_uuid(),
-  slug         text not null unique,
-  title_es     text not null,
-  title_en     text not null,
-  excerpt_es   text,
-  excerpt_en   text,
-  content_es   text not null,
-  content_en   text not null,
-  category     text not null default 'general',
-  cover_url    text,
-  published    boolean not null default false,
-  published_at timestamptz,
-  created_at   timestamptz not null default now(),
-  updated_at   timestamptz not null default now()
-);
-
-create table if not exists public.logs_stories (
+create table if not exists public.logs (
   id            uuid primary key default gen_random_uuid(),
+  slug          text not null unique,
+  type          text not null default 'log' check (type in ('log', 'story')),
   title_es      text not null,
   title_en      text not null,
-  video_url     text not null,
+  excerpt_es    text,
+  excerpt_en    text,
+  content_es    text not null default '',
+  content_en    text not null default '',
+  category      text not null default 'general',
+  video_url     text,
   thumbnail_url text,
   platform      text not null default 'web',
   external_link text,
   published     boolean not null default false,
+  published_at  timestamptz,
   position      int  not null default 0,
-  created_at    timestamptz not null default now()
+  created_at    timestamptz not null default now(),
+  updated_at    timestamptz not null default now()
 );
 
-create index if not exists logs_posts_published_idx
-  on public.logs_posts (published, published_at desc);
-create index if not exists logs_stories_published_idx
-  on public.logs_stories (published, position);
+create index if not exists logs_published_idx
+  on public.logs (published, published_at desc);
+create index if not exists logs_feed_idx
+  on public.logs (published, type, position);
 
 -- ── Row Level Security ──────────────────────────────────────────────────────
 
-alter table public.logs_posts   enable row level security;
-alter table public.logs_stories enable row level security;
+alter table public.logs enable row level security;
 
 -- Public reads: only published rows
-create policy "public read published posts"
-  on public.logs_posts for select
-  to anon, authenticated
-  using (published = true);
-
-create policy "public read published stories"
-  on public.logs_stories for select
+create policy "public read published logs"
+  on public.logs for select
   to anon, authenticated
   using (published = true);
 
 -- Admin reads: the signed-in owner sees drafts too
-create policy "admin read all posts"
-  on public.logs_posts for select
-  to authenticated
-  using (true);
-
-create policy "admin read all stories"
-  on public.logs_stories for select
+create policy "admin read all logs"
+  on public.logs for select
   to authenticated
   using (true);
 
 -- Admin writes (single-owner site: any authenticated user = owner)
-create policy "admin insert posts"
-  on public.logs_posts for insert
+create policy "admin insert logs"
+  on public.logs for insert
   to authenticated
   with check (true);
 
-create policy "admin update posts"
-  on public.logs_posts for update
+create policy "admin update logs"
+  on public.logs for update
   to authenticated
   using (true) with check (true);
 
-create policy "admin delete posts"
-  on public.logs_posts for delete
-  to authenticated
-  using (true);
-
-create policy "admin insert stories"
-  on public.logs_stories for insert
-  to authenticated
-  with check (true);
-
-create policy "admin update stories"
-  on public.logs_stories for update
-  to authenticated
-  using (true) with check (true);
-
-create policy "admin delete stories"
-  on public.logs_stories for delete
+create policy "admin delete logs"
+  on public.logs for delete
   to authenticated
   using (true);
 

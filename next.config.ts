@@ -6,6 +6,12 @@ const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 const nextConfig: NextConfig = {
   cacheComponents: false,
   partialPrefetching: false,
+  async redirects() {
+    return [
+      { source: "/stories", destination: "/logs", permanent: true },
+      { source: "/en/stories", destination: "/en/logs", permanent: true },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

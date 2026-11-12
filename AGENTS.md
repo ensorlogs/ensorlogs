@@ -16,7 +16,7 @@ Personal brand site: retro 1-bit / pixel-art aesthetic, dark theme, amber accent
 - **Next 16 specifics**: `proxy.ts` (not middleware.ts), `params`/`searchParams` are awaited Promises, `cacheComponents` is disabled in `next.config.ts`.
 - **Multiple root layouts**: `app/(site)/[locale]/layout.tsx` and `app/(admin)/admin/layout.tsx` each render `<html>` — there is intentionally NO `app/layout.tsx`.
 - **i18n**: next-intl, locales `es` (default, no URL prefix) + `en` (`/en`). Texts live in `messages/{es,en}.json`.
-- **Data layer**: `lib/data.ts` returns seed data (`data/seed-*.ts`) until `NEXT_PUBLIC_SUPABASE_URL` exists, then reads Supabase. Posts/stories use `_es`/`_en` columns localized by locale.
+- **Data layer**: `lib/data.ts` returns seed data (`data/seed-logs.ts`) until `NEXT_PUBLIC_SUPABASE_URL` exists, then reads Supabase. One unified `logs` table — `type: 'log' | 'story'` (story = video log with `video_url`), `_es`/`_en` columns localized by locale.
 - **Admin** `/admin`: Supabase Auth guard in `proxy.ts` → `lib/supabase/session.ts`. Without env vars it renders `SupabaseNotice`.
 - **Brevo**: `app/api/contact/route.ts` simulates sends when `BREVO_API_KEY` is unset.
 - New hotspot: id in `components/hero/hotspots.ts` + SVG zone in `Room.tsx` + `hotspots.<id>` strings in both message files.
