@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "title": "Ensor.Logs — Log of real decisions",
+    "description": "Software development, domotics, IoT, Construtech and Tourism Tech. Ensor's technical logbook."
+  },
+  "nav": {
+    "home": "Home",
+    "logs": "Logs",
+    "stories": "Stories",
+    "contact": "Contact",
+    "system": "SYS.ENSOR_LOGS_v1.0"
+  },
+  "hero": {
+    "kicker": "> run ensor_room.exe",
+    "title": "ENSOR.LOGS",
+    "subtitle": "Development, domotics and technology with judgment.",
+    "hint_desktop": "Click the glowing dots around the room",
+    "hint_mobile": "Tap the glowing dots or use the shortcuts",
+    "hotspots_label": "Explore the room"
+  },
+  "hotspots": {
+    "about": {
+      "label": "Family picture",
+      "title": "ABOUT.TXT",
+      "heading": "About me / Philosophy",
+      "body": "I'm Ensor: developer by trade, curious by vocation. In the picture: my wife, our Schnauzer and me — the real team behind Ensor.Logs.\n\nMy philosophy: technology should be silent and useful. If a system needs someone to understand it to work, it's badly designed. I document what I learn building real things, no hype.",
+      "tags": ["family", "schnauzer", "philosophy", "logbook"]
+    },
+    "dev": {
+      "label": "Dual monitors",
+      "title": "SERVICES.DEV",
+      "heading": "Software development",
+      "body": "Full web applications, systems architecture and custom tools ship from this station.\n\n• Web applications (Next.js, TypeScript, Supabase)\n• Systems architecture and APIs\n• Business process automation\n• Integrations: CRM, payments, transactional email",
+      "tags": ["nextjs", "typescript", "architecture", "web-apps"]
+    },
+    "server": {
+      "label": "Local server",
+      "title": "HOME.SERVER",
+      "heading": "Domotics & Home Server",
+      "body": "Ubuntu Server + Home Assistant + Docker: the local brain of the house.\n\n• Automations that don't depend on the cloud\n• Zigbee2MQTT for sensors without proprietary hubs\n• Automatic backups and monitoring\n• Self-hosting: my services, my rules",
+      "tags": ["home-assistant", "ubuntu", "docker", "self-hosted"]
+    },
+    "iot": {
+      "label": "IoT sensors",
+      "title": "IOT.DEVICES",
+      "heading": "IoT & Construtech",
+      "body": "The wall is full of eyes: motion, temperature and air quality sensors, plus a smart lock on the door.\n\nOn construction sites I apply the same logic: smart water pumps, level telemetry, automatic alerts and status dashboards. Construtech means making data work before the problem exists.",
+      "tags": ["sensors", "smart-lock", "water-pumps", "telemetry"]
+    },
+    "fun": {
+      "label": "Leisure zone",
+      "title": "OFFLINE.MODE",
+      "heading": "Offline mode",
+      "body": "Nintendo Switch for Zelda and Mario Kart sessions. The Boston Red Sox pennant because some teams are chosen with the heart.\n\nThis is where I unplug to come back with better ideas. Sometimes the best debugging is a game and a coffee.",
+      "tags": ["nintendo-switch", "red-sox", "gaming", "coffee"]
+    }
+  },
+  "services": {
+    "kicker": "> list verticals",
+    "title": "Services",
+    "subtitle": "Four verticals, one criterion: technology that solves.",
+    "items": {
+      "domotics": {
+        "title": "Domotics & IoT",
+        "desc": "Homes and businesses that run themselves.",
+        "points": ["Custom Home Assistant setups", "Sensors and actuators", "Cloud-free automations", "Secure IoT networks"]
+      },
+      "ai": {
+        "title": "Artificial Intelligence",
+        "desc": "AI embedded in real processes.",
+        "points": ["Agents for business tasks", "LLM-powered automation", "Chatbots and internal assistants", "AI workflow audits"]
+      },
+      "construtech": {
+        "title": "Smart Construction",
+        "desc": "Telemetry and data for job sites.",
+        "points": ["Level and flow sensors", "Smart pumps and equipment", "Alerts and dashboards", "Remote asset management"]
+      },
+      "tourism": {
+        "title": "Tourism Tech",
+        "desc": "Frictionless bookings and operations.",
+        "points": ["Booking engines", "Confirmation automation", "Calendar integration", "Occupancy dashboards"]
+      }
+    },
+    "cta": "Inquire"
+  },
+  "logs": {
+    "kicker": "> tail -f /var/log/ensor",
+    "title": "Ensor Logs",
+    "subtitle": "Technical logbook: projects, failures and how I solved them.",
+    "read": "Read log",
+    "empty": "No logs published yet.",
+    "published": "Published",
+    "back": "← Back to logs",
+    "category": "Category"
+  },
+  "stories": {
+    "kicker": "> load feed",
+    "title": "Stories",
+    "subtitle": "Unboxings, setups and quick reviews in vertical format.",
+    "watch": "Watch feed",
+    "empty": "No stories published yet.",
+    "prev": "Previous",
+    "next": "Next",
+    "mute": "Mute",
+    "unmute": "Unmute",
+    "open": "Open story"
+  },
+  "contact": {
+    "kicker": "> ./contact.sh",
+    "title": "Contact",
+    "subtitle": "A project, an automation or a weird idea? Write me.",
+    "name": "Name",
+    "email": "Email",
+    "type": "Inquiry type",
+    "types": {
+      "dev": "Development / software",
+      "domotics": "Domotics & IoT",
+      "construtech": "Construtech",
+      "tourism": "Tourism Tech",
+      "other": "Other"
+    },
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Transmitting…",
+    "success": "Message received. I reply within 48h.",
+    "error": "Something failed while sending. Try again or reach me elsewhere.",
+    "required": "Required field"
+  },
+  "footer": {
+    "tagline": "Log of real decisions.",
+    "built": "Handmade with Next.js and pixels",
+    "rights": "© {year} Ensor.Logs"
+  },
+  "a11y": {
+    "close": "Close",
+    "open_menu": "Open menu",
+    "switch_locale": "Switch language",
+    "skip": "Skip to content"
+  }
+}

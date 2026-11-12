@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0b0d;
+  --color-ink-2: #101014;
+  --color-panel: #16161c;
+  --color-panel-2: #1d1d25;
+  --color-line: #2b2b34;
+  --color-line-2: #3f3f4d;
+  --color-fg: #e8e6df;
+  --color-dim: #93908a;
+  --color-amber: #ffb000;
+  --color-amber-soft: #ffd257;
+  --color-amber-dim: #8a5f00;
+  --color-phosphor: #4dff88;
+  --color-alert: #ff5f56;
+  --color-sky: #5ec8ff;
+
+  --font-pixel: var(--font-press-start), "Courier New", monospace;
+  --font-term: var(--font-vt323), "Courier New", monospace;
+
+  --shadow-window: 6px 6px 0 0 rgba(0, 0, 0, 0.55);
+  --shadow-window-sm: 4px 4px 0 0 rgba(0, 0, 0, 0.55);
+
+  --animate-blink: blink 1s steps(2, start) infinite;
+  --animate-led: led 1.6s steps(2, start) infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-scanline: scanline 9s linear infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@keyframes led {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  56%,
+  100% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.45);
+    opacity: 0.45;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+html {
+  background: var(--color-ink);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-term);
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-ink);
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* Stepped pixel borders — reads as a chunky 1-bit frame */
+.pixel-border {
+  border: 2px solid var(--color-line-2);
+  box-shadow:
+    inset 0 0 0 2px var(--color-ink-2),
+    var(--shadow-window-sm);
+}
+
+.pixel-border-amber {
+  border: 2px solid var(--color-amber);
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 176, 0, 0.14),
+    var(--shadow-window-sm);
+}
+
+.retro-titlebar {
+  background: var(--color-amber);
+  color: var(--color-ink);
+  font-family: var(--font-pixel);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.crt-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.18) 3px,
+    rgba(0, 0, 0, 0.18) 4px
+  );
+  mix-blend-mode: multiply;
+}
+
+.crt-vignette::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.terminal-glow {
+  text-shadow: 0 0 6px rgba(255, 176, 0, 0.45);
+}
+
+.phosphor-glow {
+  text-shadow: 0 0 6px rgba(77, 255, 136, 0.5);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Prose-ish defaults for rendered markdown logs */
+.log-body h1,
+.log-body h2,
+.log-body h3 {
+  font-family: var(--font-pixel);
+  color: var(--color-amber);
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+.log-body h1 {
+  font-size: 1rem;
+}
+.log-body h2 {
+  font-size: 0.8rem;
+}
+.log-body h3 {
+  font-size: 0.65rem;
+}
+.log-body p {
+  margin-bottom: 1em;
+}
+.log-body ul,
+.log-body ol {
+  margin: 0 0 1em 1.4em;
+  list-style: square;
+}
+.log-body ol {
+  list-style: decimal;
+}
+.log-body li {
+  margin-bottom: 0.3em;
+}
+.log-body code {
+  background: var(--color-panel-2);
+  border: 1px solid var(--color-line);
+  padding: 0 0.3em;
+  color: var(--color-phosphor);
+  font-size: 0.95em;
+}
+.log-body pre {
+  background: var(--color-ink-2);
+  border: 2px solid var(--color-line);
+  padding: 0.9em;
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+.log-body pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.log-body a {
+  color: var(--color-sky);
+  text-decoration: underline;
+}
+.log-body blockquote {
+  border-left: 3px solid var(--color-amber);
+  padding-left: 1em;
+  color: var(--color-dim);
+  margin-bottom: 1em;
+}
+.log-body img {
+  border: 2px solid var(--color-line);
+  margin: 1em 0;
+}
