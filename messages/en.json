@@ -10,12 +10,8 @@
     "system": "SYS.ENSOR_LOGS_v1.0"
   },
   "hero": {
-    "kicker": "> run ensor_room.exe",
-    "title": "ENSOR.LOGS",
-    "subtitle": "Domotics, AI and development — from a room that actually exists.",
-    "hint_desktop": "Explore the room: every device has a story. Click the glowing dots",
-    "hint_mobile": "Explore the room: tap the glowing dots or use the shortcuts",
-    "hotspots_label": "Explore the room"
+    "hint_desktop": "Explore the room: every glowing dot opens something",
+    "hint_mobile": "Tap the glowing dots in the room"
   },
   "hotspots": {
     "about": {
@@ -55,13 +51,22 @@
       "heading": "Offline mode",
       "body": "Nintendo Switch for Zelda and Mario Kart, the coffee machine keeping the operation alive and an El Tigre poster.\n\nThe personal touches aren't decoration: they're a reminder that technology is for living better, not for living at work.",
       "tags": ["nintendo", "coffee", "gaming", "downtime"]
+    },
+    "contact": {
+      "label": "Write me",
+      "title": "CONTACT.EXE"
+    },
+    "logs": {
+      "label": "Logbook",
+      "title": "ENSOR.LOGS",
+      "empty": "No entries published yet.",
+      "all": "Open the full logbook →"
     }
   },
   "eggs": {
     "tigre": "El Tigre — pura vida from Costa Rica.",
     "window": "Real mountains. The best render in the setup.",
     "tux": "Linux, Harry Potter and Tux: the setup's holy trinity.",
-    "coffee": "Critical dependency: coffee can't be automated.",
     "machine": "The most important infrastructure in the house."
   },
   "logs": {

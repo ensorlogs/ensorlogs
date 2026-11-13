@@ -10,12 +10,8 @@
     "system": "SYS.ENSOR_LOGS_v1.0"
   },
   "hero": {
-    "kicker": "> ejecutar ensor_room.exe",
-    "title": "ENSOR.LOGS",
-    "subtitle": "Domótica, IA y desarrollo — desde una habitación que sí existe.",
-    "hint_desktop": "Explora la habitación: cada dispositivo cuenta algo. Haz clic en los puntos brillantes",
-    "hint_mobile": "Explora la habitación: toca los puntos brillantes o usa los accesos",
-    "hotspots_label": "Explorar la habitación"
+    "hint_desktop": "Explora la habitación: cada punto brillante abre algo",
+    "hint_mobile": "Toca los puntos brillantes de la habitación"
   },
   "hotspots": {
     "about": {
@@ -55,13 +51,22 @@
       "heading": "Modo desconexión",
       "body": "Nintendo Switch para Zelda y Mario Kart, la cafetera que sostiene la operación y un póster de El Tigre.\n\nLos toques personales no son decoración: recuerdan que la tecnología es para vivir mejor, no para vivir trabajando.",
       "tags": ["nintendo", "cafe", "gaming", "descanso"]
+    },
+    "contact": {
+      "label": "Escríbeme",
+      "title": "CONTACT.EXE"
+    },
+    "logs": {
+      "label": "Bitácora",
+      "title": "ENSOR.LOGS",
+      "empty": "Aún no hay entradas publicadas.",
+      "all": "Abrir la bitácora completa →"
     }
   },
   "eggs": {
     "tigre": "El Tigre — pura vida desde Costa Rica.",
     "window": "Montañas de verdad. El mejor render del setup.",
     "tux": "Linux, Harry Potter y Tux: la trinidad del setup.",
-    "coffee": "Dependencia crítica: el café no se automatiza.",
     "machine": "La infraestructura más importante de la casa."
   },
   "logs": {
