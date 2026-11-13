@@ -1,13 +1,17 @@
 {
   "meta": {
-    "title": "Ensor.Logs — Log of real decisions",
-    "description": "Software development, domotics, IoT, Construtech and Tourism Tech. Ensor's technical logbook."
+    "title": "Ensor.Logs — Domotics, Web Development & AI, Venezuela + Remote",
+    "description": "Systems engineer based in Venezuela: domotics, web & app development, applied AI, cameras, networking and IT support. Real projects in El Hatillo and Punta Cana, remote work for US clients."
   },
   "nav": {
     "home": "Home",
-    "logs": "Logs",
-    "contact": "Contact",
-    "system": "SYS.ENSOR_LOGS_v1.0"
+    "services": "My Services",
+    "logs": "My Logs",
+    "projects": "My Projects",
+    "contact": "Contact me",
+    "newsletter": "Newsletter",
+    "lang": "Language",
+    "social": "Follow me"
   },
   "hero": {
     "hint_desktop": "Explore the room: every glowing dot opens something",
@@ -18,16 +22,22 @@
       "label": "The team",
       "title": "ABOUT.TXT",
       "heading": "Behind Ensor.Logs",
-      "body": "That's me in the photo, with my wife and the Schnauzer who actually runs the house. Systems builder by day, Zelda player by night.\n\nI work technology with one rule: it has to solve something real. Everything you see in this room runs on my own server — if I recommend it, it's because I use it.",
-      "tags": ["family", "schnauzer", "philosophy", "logbook"]
+      "body": "That's me in the photo, next to who actually runs the house 😂: my wife ❤️, architect Nina Marquina — and our Schnauzer Toffu, the household guardian.\n\nSystems builder by day, gamer by night. I work technology with one rule: it has to solve something real. Everything you see in this room runs on my own server — if I recommend it, it's because I use it.",
+      "tags": ["family", "schnauzer", "architect", "logbook"]
+    },
+    "me": {
+      "label": "Ensor",
+      "title": "ENSOR.BIO",
+      "heading": "Ensor — Systems Engineer",
+      "body": "My name is Ensor, systems engineer with 10+ years of experience in this geek world.\n\nThese days I'm focused on bringing AI into real development: applications, domotics and concrete cases in tourism and construction — not theory, projects that actually work.\n\nNeed my services? Feel free to contact me:"
     },
     "dev": {
       "label": "Workstation",
       "title": "SERVICES.EXE",
-      "heading": "Development · AI · Systems",
-      "body": "Projects ship from these monitors:\n\n• Custom web applications (Next.js, TypeScript)\n• Process automation with AI and agents\n• Systems architecture, APIs and integrations\n• Dashboards and internal tools for businesses",
-      "tags": ["ai", "apps", "web", "systems"],
-      "cta": "Let's talk about your project →"
+      "heading": "Web dev · Apps · AI",
+      "body": "Projects ship from these monitors:\n\n• Custom web development and applications\n• Process automation with AI and agents\n• Systems architecture, APIs and integrations\n\nNeed something like this? You can request my services. Full portfolio: coming soon.",
+      "tags": ["web", "apps", "ai", "systems"],
+      "cta": "Request my services →"
     },
     "server": {
       "label": "The rack",
@@ -49,8 +59,8 @@
       "label": "Personal zone",
       "title": "OFFLINE.MODE",
       "heading": "Offline mode",
-      "body": "Nintendo Switch for Zelda and Mario Kart, the coffee machine keeping the operation alive and an El Tigre poster.\n\nThe personal touches aren't decoration: they're a reminder that technology is for living better, not for living at work.",
-      "tags": ["nintendo", "coffee", "gaming", "downtime"]
+      "body": "The Nintendo Switch is my go-to console: Super Smash Bros, Zelda and Mario Kart until my thumbs hurt.\n\nThe personal touches aren't decoration: they're a reminder that technology is for living better, not for living at work.",
+      "tags": ["nintendo", "smash", "zelda", "mario-kart"]
     },
     "contact": {
       "label": "Write me",
@@ -61,13 +71,28 @@
       "title": "ENSOR.LOGS",
       "empty": "No entries published yet.",
       "all": "Open the full logbook →"
+    },
+    "newsletter": {
+      "label": "Newsletter",
+      "title": "NEWSLETTER.EXE",
+      "body": "Get the logs, projects and domotics / AI / development tricks straight in your inbox. No spam — only when there's something worth telling."
     }
   },
   "eggs": {
-    "tigre": "El Tigre — pura vida from Costa Rica.",
-    "window": "Real mountains. The best render in the setup.",
-    "tux": "Linux, Harry Potter and Tux: the setup's holy trinity.",
-    "machine": "The most important infrastructure in the house."
+    "tigre": "That's where I was born — my hometown: El Tigre, Venezuela 🐯❤️",
+    "window": "I live in El Hatillo, Venezuela ❤️🏔️",
+    "linux": "They used to call me \"Linuxsor\" — it saved me in systems engineering.",
+    "hp": "Who doesn't like Harry Potter? Slytherin rules 💚",
+    "redsox": "My beloved team: the Boston Red Sox ❤️",
+    "machine": "Who doesn't love coffee? ☕",
+    "xbox": "A few Warzone matches? I'm in! Ask for my Discord and let's play.",
+    "schnauzer": "Toffu, the household guardian 🐾 woof woof — careful: he bites (sometimes).",
+    "bulbs": "Smart bulbs — scenes and schedules.",
+    "plugs": "Smart plugs — control and energy monitoring.",
+    "humidity": "Moisture sensor — the plant tells me when it's thirsty.",
+    "lock": "Smart lock — goodbye keys.",
+    "camera": "Detection camera — the house watches itself.",
+    "cta": "Want domotics like this? ▸ Hire my services"
   },
   "logs": {
     "kicker": "> tail -f /var/log/ensor",
@@ -82,6 +107,9 @@
     "mute": "Mute",
     "unmute": "Unmute",
     "empty": "No logs published yet.",
+    "search": "Search the logbook…",
+    "allcats": "All",
+    "no_results": "Nothing here — try another search.",
     "published": "Published",
     "back": "← Back to logs",
     "category": "Category"
@@ -92,13 +120,15 @@
     "subtitle": "A project, an automation or a weird idea? Write me.",
     "name": "Name",
     "email": "Email",
-    "type": "Inquiry type",
+    "phone": "Phone / WhatsApp",
+    "type": "What do you need?",
     "types": {
-      "dev": "Development / software",
-      "domotics": "Domotics & IoT",
-      "construtech": "Construtech",
-      "tourism": "Tourism Tech",
-      "other": "Other"
+      "web": "Web Development",
+      "apps": "Systems / Apps",
+      "soporte": "PC Tech Support",
+      "domotica": "Domotics",
+      "camaras": "Cameras / Networks",
+      "marketing": "Digital Marketing"
     },
     "message": "Message",
     "send": "Send message",
@@ -107,15 +137,74 @@
     "error": "Something failed while sending. Try again or reach me elsewhere.",
     "required": "Required field"
   },
+  "projects": {
+    "kicker": "> ls ~/projects",
+    "title": "My Projects",
+    "subtitle": "Real implementations: web development, systems, AI and automation applied to tourism, construction and business.",
+    "visit": "View case ↗",
+    "back": "← Back to My Projects",
+    "context": "// CONTEXT",
+    "solution": "// IMPLEMENTED SOLUTION",
+    "results": "// RESULTS",
+    "site": "Visit the site ↗",
+    "cta_text": "Got a similar project in mind?",
+    "cta_button": "Let's talk →"
+  },
+  "newsletter": {
+    "pitch": "Like what I do? Join the newsletter.",
+    "cta": "Subscribe to the newsletter →",
+    "placeholder": "you@email.com",
+    "subscribe": "Subscribe",
+    "sending": "sending…",
+    "success": "You're in! The next issue lands in your inbox.",
+    "error": "Something failed — try again."
+  },
   "footer": {
-    "tagline": "Log of real decisions.",
-    "built": "Handmade with Next.js and pixels",
+    "tagline": "My logbook about technology",
+    "built": "Made with love in Venezuela 🇻🇪 ❤️",
     "rights": "© {year} Ensor.Logs"
+  },
+  "legal": {
+    "title": "Legal",
+    "subtitle": "Legal notice, privacy, cookies and accessibility — all in one page.",
+    "back": "← Back to the room",
+    "aviso": {
+      "title": "Legal notice",
+      "body": "ensorlogs.com is a personal brand and portfolio site operated by Ensor (Venezuela). All published content — text, code, images and videos — is his own work unless stated otherwise.\n\nUse of this site is informational: the described services (development, domotics, support) are contracted by direct agreement between the parties, not by merely using this website. Continuous availability and error-free content are not guaranteed.\n\nReproduction of the content for commercial purposes is not allowed without prior authorization."
+    },
+    "privacidad": {
+      "title": "Privacy",
+      "body": "This site uses no analytics and no third-party trackers.\n\nThe only personal data collected is what you voluntarily send through the contact form: name, email, phone/WhatsApp and message. It is processed with Brevo (mail provider, EU servers) solely to reply to you and handle service requests.\n\nYour data is never sold or shared. You can request rectification or deletion of your information at any time through the same contact form."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "body": "This site uses a single technical cookie: NEXT_LOCALE, which remembers your preferred language (Spanish or English). It is strictly necessary for the site to work and collects no personal data.\n\nThere are no advertising, analytics or tracking cookies. Since there are no non-essential cookies, no consent banner is required."
+    },
+    "accesibilidad": {
+      "title": "Accessibility",
+      "body": "ensorlogs.com is built to be usable by everyone:\n\n• Full keyboard navigation (hotspots, menu and forms are real button/link elements)\n• Aria labels on interactive controls and descriptive image alt text\n• High contrast on a dark background with legible typography\n• Content available in Spanish and English\n\nIf you find an accessibility barrier, report it through the contact form and I will fix it."
+    }
+  },
+  "loader": {
+    "phrases": [
+      "Pivot table activated. Pivot tables, not pivoting tables.",
+      "Watering the plant from the cloud…",
+      "Compiling pixels…",
+      "Home Assistant: all sensors OK.",
+      "git commit -m 'waking up'",
+      "Syncing Zigbee devices…",
+      "Loading coffee… critical resource.",
+      "docker compose up -d",
+      "The Schnauzer is watching the deploy.",
+      "sudo make me a website"
+    ]
   },
   "a11y": {
     "close": "Close",
     "open_menu": "Open menu",
     "switch_locale": "Switch language",
+    "music_on": "Play lofi music",
+    "music_off": "Stop music",
     "skip": "Skip to content"
   }
 }

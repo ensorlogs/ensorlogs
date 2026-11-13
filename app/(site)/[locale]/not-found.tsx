@@ -5,7 +5,7 @@ export default function NotFound() {
   const t = useTranslations("nav");
 
   return (
-    <section className="flex flex-col items-center py-20 text-center">
+    <section className="flex flex-col items-center px-4 pt-32 pb-20 text-center">
       <p className="font-pixel text-4xl text-alert sm:text-6xl">404</p>
       <p className="font-pixel mt-4 text-[0.6rem] text-amber">
         GAME OVER — PAGE NOT FOUND

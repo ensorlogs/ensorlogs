@@ -55,7 +55,7 @@ function LogView({
     : "";
 
   return (
-    <article>
+    <article className="mx-auto w-full max-w-5xl px-4 pt-20">
       <Link href="/logs" className="font-term text-lg text-dim hover:text-amber">
         {t("back")}
       </Link>

@@ -7,6 +7,7 @@ export function isBrevoConfigured() {
 type ContactPayload = {
   name: string;
   email: string;
+  phone?: string;
   type: string;
   message: string;
 };
@@ -35,7 +36,7 @@ export async function sendContactEmail(payload: ContactPayload) {
       replyTo: { email: payload.email, name: payload.name },
       to: [{ email: to }],
       subject: `[ensorlogs] ${payload.type} — ${payload.name}`,
-      textContent: `Tipo: ${payload.type}\nNombre: ${payload.name}\nEmail: ${payload.email}\n\n${payload.message}`,
+      textContent: `Tipo: ${payload.type}\nNombre: ${payload.name}\nEmail: ${payload.email}\nTeléfono/WhatsApp: ${payload.phone ?? "—"}\n\n${payload.message}`,
     }),
   });
 
@@ -51,9 +52,32 @@ export async function upsertContact(payload: ContactPayload) {
     method: "POST",
     body: JSON.stringify({
       email: payload.email,
-      attributes: { FIRSTNAME: payload.name, INQUIRY_TYPE: payload.type },
+      attributes: {
+        FIRSTNAME: payload.name,
+        INQUIRY_TYPE: payload.type,
+        ...(payload.phone ? { SMS: payload.phone } : {}),
+      },
       updateEnabled: true,
       ...(listId ? { listIds: [listId] } : {}),
     }),
   });
+}
+
+/** Newsletter opt-in — BREVO_NEWSLETTER_LIST_ID, fallback BREVO_LIST_ID. */
+export async function subscribeNewsletter(email: string) {
+  const listId = Number(
+    process.env.BREVO_NEWSLETTER_LIST_ID ?? process.env.BREVO_LIST_ID ?? 0
+  );
+  const res = await brevoFetch("/contacts", {
+    method: "POST",
+    body: JSON.stringify({
+      email,
+      attributes: { NEWSLETTER: true },
+      updateEnabled: true,
+      ...(listId ? { listIds: [listId] } : {}),
+    }),
+  });
+  if (!res.ok) {
+    throw new Error(`Brevo contacts error: ${res.status} ${await res.text()}`);
+  }
 }

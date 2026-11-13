@@ -5,6 +5,16 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { DESKTOP_ZONES, MOBILE_ZONES, type Zone } from "./room-zones";
 import type { HotspotId } from "./hotspots";
+import {
+  playWoof,
+  playPour,
+  playNintendo,
+  playXbox,
+  playBulb,
+  playPlug,
+  playBoot,
+  playTiger,
+} from "@/lib/sfx";
 
 type RoomSceneProps = {
   onHotspot: (id: HotspotId) => void;
@@ -15,6 +25,7 @@ function ZoneButton({
   zone,
   zoneKey,
   label,
+  ctaHint,
   active,
   onActivate,
   onHotspot,
@@ -22,11 +33,19 @@ function ZoneButton({
   zone: Zone;
   zoneKey: string;
   label?: string;
+  ctaHint?: string;
   active: boolean;
   onActivate: (key: string | null) => void;
   onHotspot: (id: HotspotId) => void;
 }) {
   const isEgg = Boolean(zone.egg);
+
+  // keep the tooltip chip inside the scene: anchor to the nearest side and
+  // drop below zones that sit near the top edge
+  const cx = zone.x + zone.w / 2;
+  const hPos =
+    cx < 25 ? "left-0" : cx > 75 ? "right-0" : "left-1/2 -translate-x-1/2";
+  const vPos = zone.y < 15 ? "top-full mt-2" : "bottom-full mb-2";
 
   return (
     <button
@@ -44,28 +63,48 @@ function ZoneButton({
       onFocus={() => onActivate(zoneKey)}
       onBlur={() => onActivate(null)}
       onClick={() => {
+        if (zone.sfx === "woof") playWoof();
+        if (zone.sfx === "coffee") playPour();
+        if (zone.sfx === "nintendo") playNintendo();
+        if (zone.sfx === "xbox") playXbox();
+        if (zone.sfx === "bulb") playBulb();
+        if (zone.sfx === "plug") playPlug();
+        if (zone.sfx === "boot") playBoot();
+        if (zone.sfx === "tiger") playTiger();
         if (zone.id) onHotspot(zone.id);
+        else if (zone.cta) onHotspot(zone.cta);
         else onActivate(active ? null : zoneKey);
       }}
     >
-      {/* glow on hover */}
+      {/* centered dot highlight — same language as the pulsing markers */}
       <span
-        className={`absolute inset-0 rounded-sm transition-all duration-200 ${
-          active
-            ? "shadow-[0_0_0_2px_#ffb000,0_0_24px_4px_rgba(255,176,0,0.35),inset_0_0_30px_rgba(255,176,0,0.12)]"
-            : "shadow-none"
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-150 ${
+          active ? "opacity-100" : "opacity-0"
         }`}
-      />
-      {/* label / tooltip chip */}
+      >
+        <span
+          className={`block h-4 w-4 rounded-full border-2 ${
+            isEgg
+              ? "border-phosphor bg-phosphor/60 shadow-[0_0_14px_3px_rgba(51,255,51,0.5)]"
+              : "border-amber bg-amber/60 shadow-[0_0_14px_3px_rgba(255,176,0,0.5)]"
+          }`}
+        />
+      </span>
+      {/* label / tooltip chip — anchored so it never clips the scene edge */}
       {label && (
         <span
-          className={`font-term pointer-events-none absolute left-1/2 z-10 -translate-x-1/2 whitespace-nowrap border-2 px-2 py-0.5 text-base transition-all duration-150 ${
+          className={`font-term pointer-events-none absolute z-10 w-max max-w-[85vw] whitespace-normal border-2 px-2 py-0.5 text-base transition-all duration-150 ${hPos} ${vPos} ${
             isEgg
               ? "border-phosphor bg-ink text-phosphor"
               : "border-amber bg-ink text-amber"
-          } ${active ? "-top-8 opacity-100" : "-top-6 opacity-0"}`}
+          } ${active ? "opacity-100" : "opacity-0"}`}
         >
           {label}
+          {ctaHint && (
+            <span className="font-term block text-sm text-amber">
+              {ctaHint}
+            </span>
+          )}
         </span>
       )}
     </button>
@@ -106,6 +145,7 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           zone={z}
           zoneKey={key}
           label={zoneLabel(z)}
+          ctaHint={z.cta ? t("eggs.cta") : undefined}
           active={activeZone === key}
           onActivate={setActiveZone}
           onHotspot={onHotspot}
@@ -114,30 +154,32 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
     });
 
   return (
-    <div className="relative">
-      {/* desktop scene */}
-      <div className="relative hidden md:block">
+    <div className="relative h-dvh w-full overflow-hidden">
+      {/* desktop scene — shown on landscape-ish viewports; the inner box
+          covers the screen at the image's aspect ratio (crops, never
+          stretches) so %-positioned zones stay aligned */}
+      <div className="absolute top-1/2 left-1/2 hidden aspect-[16/9] w-[max(100vw,177.78dvh)] -translate-x-1/2 -translate-y-1/2 [@media(min-aspect-ratio:4/3)]:block">
         <Image
-          src="/room-desktop.jpg"
+          src="/room-desktop-4x.jpg"
           alt="La habitación de Ensor: escritorio con doble monitor, rack de servidor, dispositivos de domótica y su Schnauzer"
-          width={1024}
-          height={576}
+          fill
           priority
-          className="h-auto w-full"
+          unoptimized
+          className="object-cover"
         />
         {renderZones(DESKTOP_ZONES, "d")}
         <Markers zones={DESKTOP_ZONES} />
       </div>
 
-      {/* mobile scene */}
-      <div className="relative md:hidden">
+      {/* mobile scene — portrait-ish viewports */}
+      <div className="absolute top-1/2 left-1/2 aspect-[9/16] w-[max(100vw,56.25dvh)] -translate-x-1/2 -translate-y-1/2 [@media(min-aspect-ratio:4/3)]:hidden">
         <Image
-          src="/room-mobile.jpg"
+          src="/room-mobile-4x.jpg"
           alt="La habitación de Ensor en versión vertical"
-          width={576}
-          height={1024}
+          fill
           priority
-          className="h-auto w-full"
+          unoptimized
+          className="object-cover"
         />
         {renderZones(MOBILE_ZONES, "m")}
         <Markers zones={MOBILE_ZONES} />

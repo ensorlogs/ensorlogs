@@ -5,7 +5,10 @@ import { isBrevoConfigured, sendContactEmail, upsertContact } from "@/lib/brevo"
 const schema = z.object({
   name: z.string().trim().min(1).max(120),
   email: z.string().trim().email().max(200),
-  type: z.enum(["dev", "domotics", "construtech", "tourism", "other"]).default("other"),
+  phone: z.string().trim().max(40).optional(),
+  type: z
+    .enum(["web", "apps", "soporte", "domotica", "camaras", "marketing"])
+    .default("web"),
   message: z.string().trim().min(1).max(5000),
   website: z.string().optional(), // honeypot
 });

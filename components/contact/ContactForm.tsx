@@ -5,7 +5,14 @@ import { useTranslations } from "next-intl";
 
 type Status = "idle" | "sending" | "success" | "error";
 
-const TYPES = ["dev", "domotics", "construtech", "tourism", "other"] as const;
+const SERVICES = [
+  "web",
+  "apps",
+  "soporte",
+  "domotica",
+  "camaras",
+  "marketing",
+] as const;
 
 export default function ContactForm() {
   const t = useTranslations("contact");
@@ -42,6 +49,28 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="grid gap-3 sm:grid-cols-2">
+      <fieldset className="sm:col-span-2">
+        <legend className="font-pixel mb-2 text-[0.5rem] tracking-wider text-dim">
+          {t("type")}
+        </legend>
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {SERVICES.map((key) => (
+            <label key={key} className="cursor-pointer">
+              <input
+                type="radio"
+                name="type"
+                value={key}
+                defaultChecked={key === "web"}
+                className="peer sr-only"
+              />
+              <span className="font-term peer-checked:border-amber peer-checked:bg-panel peer-checked:text-amber block border-2 border-line bg-ink-2 px-3 py-2.5 text-center text-lg text-fg transition-colors hover:border-line-2">
+                {t(`types.${key}`)}
+              </span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
       <label className="font-term block text-lg text-dim">
         {t("name")} *
         <input name="name" required className={`${inputCls} mt-1`} />
@@ -56,14 +85,13 @@ export default function ContactForm() {
         />
       </label>
       <label className="font-term block text-lg text-dim sm:col-span-2">
-        {t("type")}
-        <select name="type" className={`${inputCls} mt-1`} defaultValue="dev">
-          {TYPES.map((key) => (
-            <option key={key} value={key}>
-              {t(`types.${key}`)}
-            </option>
-          ))}
-        </select>
+        {t("phone")}
+        <input
+          name="phone"
+          type="tel"
+          placeholder="+58 412 000 0000"
+          className={`${inputCls} mt-1`}
+        />
       </label>
       <label className="font-term block text-lg text-dim sm:col-span-2">
         {t("message")} *

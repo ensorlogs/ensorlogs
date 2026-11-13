@@ -1,10 +1,10 @@
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
-import { getLogs, getVideoLogs } from "@/lib/data";
+import { getLogs } from "@/lib/data";
 import type { Locale } from "@/lib/types";
-import LogCard from "@/components/logs/LogCard";
 import LogFeed from "@/components/logs/LogFeed";
+import LogExplorer from "@/components/logs/LogExplorer";
 
 export async function generateMetadata({
   params,
@@ -23,46 +23,36 @@ export default async function LogsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const [logs, videoLogs] = await Promise.all([
-    getLogs(locale as Locale),
-    getVideoLogs(locale as Locale),
-  ]);
+  const logs = await getLogs(locale as Locale);
 
-  return <LogsView logs={logs} videoLogs={videoLogs} />;
+  return <LogsView logs={logs} />;
 }
 
 function LogsView({
   logs,
-  videoLogs,
 }: {
   logs: Awaited<ReturnType<typeof getLogs>>;
-  videoLogs: Awaited<ReturnType<typeof getVideoLogs>>;
 }) {
   const t = useTranslations("logs");
 
   return (
-    <section>
+    <section className="mx-auto w-full max-w-5xl px-4 pt-20">
       <p className="font-term text-dim">{t("kicker")}</p>
       <h1 className="font-pixel mt-2 text-sm text-amber sm:text-base">
         {t("title")}
       </h1>
       <p className="font-term mt-2 text-xl text-dim">{t("subtitle")}</p>
 
-      {videoLogs.length > 0 && (
-        <div className="mt-8 flex justify-center sm:justify-start">
-          <LogFeed logs={videoLogs} />
-        </div>
-      )}
+      {/* mobile: single vertical feed */}
+      <div className="mt-8 flex justify-center md:hidden">
+        <LogFeed logs={logs} />
+      </div>
 
-      {logs.length === 0 ? (
-        <p className="font-term mt-8 text-xl text-dim">{t("empty")}</p>
-      ) : (
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {logs.map((log) => (
-            <LogCard key={log.id} log={log} />
-          ))}
-        </div>
-      )}
+      {/* search + categories + tile grid (the main view on desktop,
+          below the feed on mobile) */}
+      <div className="mt-8 md:mt-10">
+        <LogExplorer logs={logs} />
+      </div>
     </section>
   );
 }

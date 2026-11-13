@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import RoomScene from "./RoomScene";
 import { HOTSPOT_IDS, type HotspotId } from "./hotspots";
 import RetroWindow from "@/components/os/RetroWindow";
 import ContactForm from "@/components/contact/ContactForm";
+import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import type { Log } from "@/lib/types";
 import { Link } from "@/i18n/navigation";
 
@@ -13,6 +14,22 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
   const t = useTranslations();
   const locale = useLocale();
   const [active, setActive] = useState<HotspotId | null>(null);
+
+  // menu (or ?z= param) can open a hotspot modal from anywhere
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      if ((HOTSPOT_IDS as readonly string[]).includes(id)) {
+        setActive(id as HotspotId);
+      }
+    };
+    window.addEventListener("ensor:open-zone", handler);
+    const z = new URLSearchParams(window.location.search).get("z");
+    if (z && (HOTSPOT_IDS as readonly string[]).includes(z)) {
+      requestAnimationFrame(() => setActive(z as HotspotId));
+    }
+    return () => window.removeEventListener("ensor:open-zone", handler);
+  }, []);
 
   const labels = Object.fromEntries(
     HOTSPOT_IDS.map((id) => [id, t(`hotspots.${id}.label`)])
@@ -24,23 +41,22 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
     year: "numeric",
   });
 
-  const isText = active !== null && active !== "contact" && active !== "logs";
+  const isText =
+    active !== null &&
+    active !== "contact" &&
+    active !== "logs" &&
+    active !== "newsletter";
   const body = isText ? t(`hotspots.${active}.body`) : "";
-  const tags: string[] = isText
-    ? (t.raw(`hotspots.${active}.tags`) as string[])
-    : [];
   const hasCta = isText ? t.has(`hotspots.${active}.cta`) : false;
 
   return (
-    <section className="relative flex min-h-[calc(100dvh-5rem)] flex-col justify-center">
-      <div className="pixel-border-amber relative overflow-hidden">
-        <RoomScene onHotspot={setActive} labels={labels} />
-      </div>
+    <section className="relative h-dvh w-full">
+      <RoomScene onHotspot={setActive} labels={labels} />
 
-      <p className="font-term mt-3 hidden text-center text-dim md:block">
+      <p className="font-term pointer-events-none absolute bottom-4 left-1/2 z-10 hidden -translate-x-1/2 whitespace-nowrap bg-ink/70 px-3 py-1 text-center text-dim backdrop-blur-sm md:block">
         <span className="text-phosphor">▸</span> {t("hero.hint_desktop")}
       </p>
-      <p className="font-term mt-3 text-center text-dim md:hidden">
+      <p className="font-term pointer-events-none absolute bottom-4 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap bg-ink/70 px-3 py-1 text-center text-dim backdrop-blur-sm md:hidden">
         <span className="text-phosphor">▸</span> {t("hero.hint_mobile")}
       </p>
 
@@ -50,6 +66,15 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
         title={active ? t(`hotspots.${active}.title`) : ""}
       >
         {active === "contact" && <ContactForm />}
+
+        {active === "newsletter" && (
+          <div>
+            <p className="font-term mb-4 text-lg text-fg">
+              {t("hotspots.newsletter.body")}
+            </p>
+            <NewsletterForm />
+          </div>
+        )}
 
         {active === "logs" && (
           <div>
@@ -106,20 +131,25 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
                 <div key={i} className="h-3" />
               ) : (
                 <p key={i} className="font-term mb-1 text-lg text-fg">
-                  {line}
+                  {line.split("Nina Marquina").flatMap((part, j) =>
+                    j === 0
+                      ? [part]
+                      : [
+                          <a
+                            key={j}
+                            href="https://ninamarquina.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-amber underline decoration-dotted underline-offset-4 hover:text-amber-soft"
+                          >
+                            Nina Marquina
+                          </a>,
+                          part,
+                        ]
+                  )}
                 </p>
               )
             )}
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="font-term border-line bg-ink-2 border px-2 py-0.5 text-sm text-dim"
-                >
-                  #{tag}
-                </li>
-              ))}
-            </ul>
             {hasCta && (
               <button
                 onClick={() => setActive("contact")}
@@ -127,6 +157,24 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
               >
                 {t(`hotspots.${active}.cta`)}
               </button>
+            )}
+            {active === "dev" && (
+              <div className="border-line mt-4 border-t-2 pt-3">
+                <p className="font-term mb-2 text-base text-dim">
+                  {t("newsletter.pitch")}
+                </p>
+                <button
+                  onClick={() => setActive("newsletter")}
+                  className="font-term text-lg text-amber underline decoration-dotted underline-offset-4 hover:text-amber-soft"
+                >
+                  {t("newsletter.cta")}
+                </button>
+              </div>
+            )}
+            {active === "me" && (
+              <div className="border-line mt-4 border-t-2 pt-4">
+                <ContactForm />
+              </div>
             )}
           </div>
         )}

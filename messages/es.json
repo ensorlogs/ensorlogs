@@ -1,13 +1,17 @@
 {
   "meta": {
-    "title": "Ensor.Logs — Bitácora de decisiones reales",
-    "description": "Desarrollo de software, domótica, IoT, Construtech y Tourism Tech. Bitácora técnica de Ensor."
+    "title": "Ensor.Logs — Domótica, Desarrollo Web e IA en Venezuela y remoto",
+    "description": "Ingeniero de sistemas en Venezuela: domótica, desarrollo web y apps, IA aplicada, cámaras, redes y soporte IT. Proyectos reales en El Hatillo, Punta Cana y trabajo remoto para clientes en EE.UU."
   },
   "nav": {
     "home": "Inicio",
-    "logs": "Logs",
-    "contact": "Contacto",
-    "system": "SYS.ENSOR_LOGS_v1.0"
+    "services": "Mis Servicios",
+    "logs": "Mis Logs",
+    "projects": "Mis Proyectos",
+    "contact": "Contáctame",
+    "newsletter": "Boletín",
+    "lang": "Idioma",
+    "social": "Sígueme"
   },
   "hero": {
     "hint_desktop": "Explora la habitación: cada punto brillante abre algo",
@@ -18,16 +22,22 @@
       "label": "El equipo",
       "title": "ABOUT.TXT",
       "heading": "Detrás de Ensor.Logs",
-      "body": "El de la foto soy yo, con mi esposa y el Schnauzer que realmente manda en la casa. Constructor de sistemas de día, jugador de Zelda de noche.\n\nTrabajo la tecnología con una regla: tiene que resolver algo real. Todo lo que ves en esta habitación corre en mi propio servidor — si lo recomiendo, es porque lo uso.",
-      "tags": ["familia", "schnauzer", "filosofia", "bitacora"]
+      "body": "El de la foto soy yo, junto a quien realmente manda en la casa 😂: mi esposa ❤️, la arquitecta Nina Marquina — y nuestro Schnauzer Toffu, el guardián del hogar.\n\nConstructor de sistemas de día, gamer de noche. Trabajo la tecnología con una regla: tiene que resolver algo real. Todo lo que ves en esta habitación corre en mi propio servidor — si lo recomiendo, es porque lo uso.",
+      "tags": ["familia", "schnauzer", "arquitecta", "bitacora"]
+    },
+    "me": {
+      "label": "Ensor",
+      "title": "ENSOR.BIO",
+      "heading": "Ensor — Ing. de Sistemas",
+      "body": "Mi nombre es Ensor, ingeniero de sistemas con más de 10 años de experiencia en este mundo geek.\n\nHoy estoy enfocado en llevar la IA al desarrollo real: aplicaciones, domótica y casos concretos en turismo y construcción — no teoría, proyectos que funcionan.\n\n¿Necesitas mis servicios? Con gusto puedes contactarme:"
     },
     "dev": {
       "label": "Estación de trabajo",
       "title": "SERVICES.EXE",
-      "heading": "Desarrollo · IA · Sistemas",
-      "body": "Desde estos monitores salen los proyectos:\n\n• Aplicaciones web a medida (Next.js, TypeScript)\n• Automatización de procesos con IA y agentes\n• Arquitectura de sistemas, APIs e integraciones\n• Dashboards y herramientas internas para negocios",
-      "tags": ["ia", "apps", "web", "sistemas"],
-      "cta": "Hablemos de tu proyecto →"
+      "heading": "Desarrollo web · Apps · IA",
+      "body": "Desde estos monitores salen los proyectos:\n\n• Desarrollo web y aplicaciones a medida\n• Automatización de procesos con IA y agentes\n• Arquitectura de sistemas, APIs e integraciones\n\n¿Necesitas algo así? Puedes solicitar mis servicios. Portfolio completo: próximamente.",
+      "tags": ["web", "apps", "ia", "sistemas"],
+      "cta": "Solicitar mis servicios →"
     },
     "server": {
       "label": "El rack",
@@ -49,8 +59,8 @@
       "label": "Zona personal",
       "title": "OFFLINE.MODE",
       "heading": "Modo desconexión",
-      "body": "Nintendo Switch para Zelda y Mario Kart, la cafetera que sostiene la operación y un póster de El Tigre.\n\nLos toques personales no son decoración: recuerdan que la tecnología es para vivir mejor, no para vivir trabajando.",
-      "tags": ["nintendo", "cafe", "gaming", "descanso"]
+      "body": "La Nintendo Switch es mi consola de cabecera: Super Smash Bros, Zelda y Mario Kart hasta que duelan los pulgares.\n\nLos toques personales no son decoración: recuerdan que la tecnología es para vivir mejor, no para vivir trabajando.",
+      "tags": ["nintendo", "smash", "zelda", "mario-kart"]
     },
     "contact": {
       "label": "Escríbeme",
@@ -61,13 +71,28 @@
       "title": "ENSOR.LOGS",
       "empty": "Aún no hay entradas publicadas.",
       "all": "Abrir la bitácora completa →"
+    },
+    "newsletter": {
+      "label": "Boletín",
+      "title": "NEWSLETTER.EXE",
+      "body": "Recibe los logs, proyectos y trucos de domótica, IA y desarrollo directo en tu correo. Sin spam — solo cuando hay algo que contar."
     }
   },
   "eggs": {
-    "tigre": "El Tigre — pura vida desde Costa Rica.",
-    "window": "Montañas de verdad. El mejor render del setup.",
-    "tux": "Linux, Harry Potter y Tux: la trinidad del setup.",
-    "machine": "La infraestructura más importante de la casa."
+    "tigre": "Ahí nací — mi pueblo: El Tigre, Venezuela 🐯❤️",
+    "window": "Vivo en El Hatillo, Venezuela ❤️🏔️",
+    "linux": "Me llamaban \"Linuxsor\" por algo — me salvó en ing. de sistemas.",
+    "hp": "¿A quién no le gusta Harry Potter? Slytherin rules 💚",
+    "redsox": "Mi amado equipo: los Medias Rojas de Boston ❤️",
+    "machine": "¿Quién no ama el café? ☕",
+    "xbox": "¿Unas partidas de Warzone? ¡Activo! Pregúntame mi Discord y jugamos.",
+    "schnauzer": "Toffu, el guardián del hogar 🐾 woof woof — cuidado: muerde (a veces).",
+    "bulbs": "Bombillas inteligentes — escenas y horarios.",
+    "plugs": "Tomacorrientes inteligentes — control y consumo.",
+    "humidity": "Sensor de humedad — la matica me avisa cuando tiene sed.",
+    "lock": "Cerradura inteligente — adiós llaves.",
+    "camera": "Cámara con detección — la casa se vigila sola.",
+    "cta": "¿Quieres domótica así? ▸ Contrata mis servicios"
   },
   "logs": {
     "kicker": "> tail -f /var/log/ensor",
@@ -82,6 +107,9 @@
     "mute": "Silenciar",
     "unmute": "Activar sonido",
     "empty": "No hay logs publicados todavía.",
+    "search": "Buscar en la bitácora…",
+    "allcats": "Todos",
+    "no_results": "Nada por aquí — prueba otra búsqueda.",
     "published": "Publicado",
     "back": "← Volver a logs",
     "category": "Categoría"
@@ -92,13 +120,15 @@
     "subtitle": "¿Un proyecto, una automatización o una idea rara? Escríbeme.",
     "name": "Nombre",
     "email": "Email",
-    "type": "Tipo de consulta",
+    "phone": "Teléfono / WhatsApp",
+    "type": "¿Qué necesitas?",
     "types": {
-      "dev": "Desarrollo / software",
-      "domotics": "Domótica & IoT",
-      "construtech": "Construtech",
-      "tourism": "Tourism Tech",
-      "other": "Otro"
+      "web": "Desarrollo Web",
+      "apps": "Sistemas / Apps",
+      "soporte": "Soporte Técnico PC",
+      "domotica": "Domótica",
+      "camaras": "Cámaras / Redes",
+      "marketing": "Marketing Digital"
     },
     "message": "Mensaje",
     "send": "Enviar mensaje",
@@ -107,15 +137,74 @@
     "error": "Algo falló al enviar. Inténtalo de nuevo o escríbeme por otra vía.",
     "required": "Campo requerido"
   },
+  "projects": {
+    "kicker": "> ls ~/proyectos",
+    "title": "Mis Proyectos",
+    "subtitle": "Implementaciones reales: desarrollo web, sistemas, IA y automatización aplicados a turismo, construcción y negocios.",
+    "visit": "Ver caso ↗",
+    "back": "← Volver a Mis Proyectos",
+    "context": "// CONTEXTO",
+    "solution": "// SOLUCIÓN IMPLEMENTADA",
+    "results": "// RESULTADOS",
+    "site": "Visitar el sitio ↗",
+    "cta_text": "¿Tienes un proyecto parecido en mente?",
+    "cta_button": "Hablemos →"
+  },
+  "newsletter": {
+    "pitch": "¿Te gusta lo que hago? Únete al boletín.",
+    "cta": "Suscríbete al boletín →",
+    "placeholder": "tu@correo.com",
+    "subscribe": "Suscribirme",
+    "sending": "enviando…",
+    "success": "¡Dentro! Recibirás el próximo envío en tu correo.",
+    "error": "Algo falló — inténtalo de nuevo."
+  },
   "footer": {
-    "tagline": "Bitácora de decisiones reales.",
-    "built": "Hecho a mano con Next.js y pixels",
+    "tagline": "Mi bitácora sobre tecnología",
+    "built": "Hecho con amor en Venezuela 🇻🇪 ❤️",
     "rights": "© {year} Ensor.Logs"
+  },
+  "legal": {
+    "title": "Legal",
+    "subtitle": "Aviso legal, privacidad, cookies y accesibilidad — todo en una página.",
+    "back": "← Volver a la habitación",
+    "aviso": {
+      "title": "Aviso legal",
+      "body": "ensorlogs.com es un sitio personal de marca y portafolio operado por Ensor (Venezuela). El contenido publicado —textos, código, imágenes y videos— es de su autoría salvo indicación contraria.\n\nEl uso del sitio es informativo: los servicios descritos (desarrollo, domótica, soporte) se contratan por acuerdo directo entre las partes, no por el mero uso de esta web. No se garantiza la disponibilidad continua del sitio ni la ausencia de errores en su contenido.\n\nQueda prohibido reproducir el contenido con fines comerciales sin autorización previa."
+    },
+    "privacidad": {
+      "title": "Privacidad",
+      "body": "Este sitio no usa analítica ni rastreadores de terceros.\n\nLos únicos datos personales que se recopilan son los que envías voluntariamente por el formulario de contacto: nombre, correo, teléfono/WhatsApp y mensaje. Se procesan con Brevo (proveedor de correo, servidores en la UE) únicamente para responderte y gestionar la solicitud de servicios.\n\nNo vendemos ni compartimos tus datos. Puedes pedir en cualquier momento la rectificación o eliminación de tu información escribiendo por el mismo formulario."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "body": "Este sitio utiliza una sola cookie técnica: NEXT_LOCALE, que recuerda tu idioma preferido (español o inglés). Es imprescindible para el funcionamiento de la web y no recopila datos personales.\n\nNo hay cookies de publicidad, analítica ni seguimiento. Al no haber cookies no esenciales, no se requiere banner de consentimiento."
+    },
+    "accesibilidad": {
+      "title": "Accesibilidad",
+      "body": "ensorlogs.com está construida para ser usable por todas las personas:\n\n• Navegación completa por teclado (hotspots, menú y formularios son elementos reales de botón/enlace)\n• Etiquetas aria en controles interactivos e imágenes descriptivas\n• Contraste alto sobre fondo oscuro y tipografía legible\n• Contenido disponible en español e inglés\n\nSi encuentras alguna barrera de acceso, repórtala por el formulario de contacto y la corregiré."
+    }
+  },
+  "loader": {
+    "phrases": [
+      "Pivot table activada. Mesas pivotantes, no.",
+      "Regando la matica desde la nube…",
+      "Compilando píxeles…",
+      "Home Assistant: todos los sensores OK.",
+      "git commit -m 'despertando'",
+      "Sincronizando dispositivos Zigbee…",
+      "Cargando café… recurso crítico.",
+      "docker compose up -d",
+      "El Schnauzer vigila el deploy.",
+      "sudo make me a website"
+    ]
   },
   "a11y": {
     "close": "Cerrar",
     "open_menu": "Abrir menú",
     "switch_locale": "Cambiar idioma",
+    "music_on": "Activar música lofi",
+    "music_off": "Quitar música",
     "skip": "Saltar al contenido"
   }
 }

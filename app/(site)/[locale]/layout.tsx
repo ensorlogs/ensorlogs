@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
+import SiteLoader from "@/components/site/SiteLoader";
 import "../../globals.css";
 
 const pressStart = Press_Start_2P({
@@ -31,17 +32,50 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
+  const description = t("description");
+  const title = t("title");
   return {
     metadataBase: new URL(process.env.SITE_URL ?? "https://ensorlogs.com"),
     title: {
-      default: t("title"),
+      default: title,
       template: "%s — Ensor.Logs",
     },
-    description: t("description"),
+    description,
+    keywords: [
+      "domótica Venezuela",
+      "desarrollo web Venezuela",
+      "apps Venezuela",
+      "IA aplicada",
+      "sistemas El Hatillo",
+      "soporte IT Caracas",
+      "cámaras seguridad",
+      "redes hogar",
+      "PropTech Punta Cana",
+      "trabajo remoto EE.UU.",
+      "automatización hogar",
+      "Ensor",
+      "ensorlogs",
+    ],
+    alternates: {
+      languages: { es: "/", en: "/en" },
+    },
     openGraph: {
       siteName: "Ensor.Logs",
-      images: ["/ensor-avatar.png"],
+      title,
+      description,
+      type: "website",
+      images: [{ url: "/og-cover.jpg", width: 1200, height: 630, alt: title }],
       locale: locale === "en" ? "en_US" : "es_ES",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og-cover.jpg"],
+    },
+    other: {
+      "geo.region": "VE",
+      "geo.placename": "El Hatillo, Caracas, Venezuela",
     },
   };
 }
@@ -65,9 +99,75 @@ export default async function LocaleLayout({
       className={`${pressStart.variable} ${vt323.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": "https://ensorlogs.com/#ensor",
+                  name: "Ensor",
+                  url: "https://ensorlogs.com/",
+                  image: "https://ensorlogs.com/ensor-avatar.png",
+                  jobTitle:
+                    locale === "en"
+                      ? "Systems Engineer — Domotics, Web Development & AI"
+                      : "Ingeniero de Sistemas — Domótica, Desarrollo Web e IA",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "El Hatillo",
+                    addressRegion: "Caracas",
+                    addressCountry: "VE",
+                  },
+                  sameAs: [
+                    "https://github.com/ensorlogs",
+                    "https://www.instagram.com/ensorlogs/",
+                    "https://www.youtube.com/@ensorlogs",
+                    "https://www.tiktok.com/@ensorlogs",
+                    "https://linkedin.com/in/ensorsanchez",
+                  ],
+                },
+                {
+                  "@type": "ProfessionalService",
+                  "@id": "https://ensorlogs.com/#services",
+                  name: "Ensor.Logs",
+                  url: "https://ensorlogs.com/",
+                  founder: { "@id": "https://ensorlogs.com/#ensor" },
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "El Hatillo",
+                    addressRegion: "Caracas",
+                    addressCountry: "VE",
+                  },
+                  areaServed: [
+                    { "@type": "Country", name: "Venezuela" },
+                    { "@type": "City", name: "Punta Cana" },
+                    {
+                      "@type": "Country",
+                      name: "United States",
+                      description: "remote work",
+                    },
+                  ],
+                  serviceType: [
+                    "Domótica e IoT",
+                    "Desarrollo Web",
+                    "Sistemas y Apps",
+                    "Inteligencia Artificial aplicada",
+                    "Cámaras y Redes",
+                    "Soporte Técnico",
+                    "Marketing Digital",
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
         <NextIntlClientProvider>
+          <SiteLoader />
           <Header />
-          <main id="content" className="mx-auto w-full max-w-5xl flex-1 px-4 pt-16 pb-8">
+          <main id="content" className="w-full flex-1">
             {children}
           </main>
           <Footer />

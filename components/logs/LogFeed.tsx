@@ -35,16 +35,38 @@ function LogSlide({
 
   return (
     <div className="relative h-full w-full snap-start">
-      <video
-        ref={videoRef}
-        src={log.videoUrl ?? undefined}
-        poster={log.thumbnailUrl ?? undefined}
-        loop
-        muted={muted}
-        playsInline
-        preload={active ? "auto" : "metadata"}
-        className="h-full w-full bg-ink-2 object-contain"
-      />
+      {log.videoUrl ? (
+        <video
+          ref={videoRef}
+          src={log.videoUrl}
+          poster={log.thumbnailUrl ?? undefined}
+          loop
+          muted={muted}
+          playsInline
+          preload={active ? "auto" : "metadata"}
+          className="h-full w-full bg-ink-2 object-contain"
+        />
+      ) : log.thumbnailUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={log.thumbnailUrl}
+          alt={log.title}
+          className="h-full w-full bg-ink-2 object-contain"
+        />
+      ) : (
+        /* text log — terminal-style slide instead of an empty frame */
+        <div className="flex h-full w-full flex-col justify-center bg-ink-2 p-6">
+          <p className="font-pixel text-[0.55rem] text-phosphor">
+            LOG_{String(log.logNumber).padStart(3, "0")}
+          </p>
+          <p className="font-term mt-4 text-dim">&gt; cat {log.slug}.md</p>
+          {log.excerpt && (
+            <p className="font-term mt-4 text-lg leading-relaxed text-fg">
+              {log.excerpt}
+            </p>
+          )}
+        </div>
+      )}
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/95 to-transparent p-4 pt-14">
         <h3 className="font-term text-xl leading-tight text-fg">{log.title}</h3>
         <p className="font-term mt-1 flex items-center justify-between text-sm text-dim">
