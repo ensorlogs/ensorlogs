@@ -32,6 +32,8 @@ const STACKS: Partial<Record<HotspotId, { icon: string; name: string }[]>> = {
     { icon: "matter", name: "Matter" },
     { icon: "apple", name: "Apple Home" },
     { icon: "googleassistant", name: "Google Assistant" },
+    { icon: "alexa", name: "Alexa" },
+    { icon: "tuya", name: "Tuya" },
   ],
 };
 
