@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import LocaleSwitcher from "./LocaleSwitcher";
 import MusicToggle from "./MusicToggle";
+import PushOptIn from "./PushOptIn";
 import SocialLinks from "./SocialLinks";
 
 // zone entries open the matching hotspot modal on the home room;
@@ -47,6 +48,7 @@ export default function Header() {
         </Link>
 
         <MusicToggle />
+        <PushOptIn />
 
         <div className="relative">
           <button

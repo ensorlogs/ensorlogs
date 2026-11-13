@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
-import { getAllSlugs } from "@/lib/data";
-import { projects } from "@/data/projects";
+import { getAllSlugs, getProjectSlugs } from "@/lib/data";
 
 const BASE_URL = process.env.SITE_URL ?? "https://ensorlogs.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const slugs = await getAllSlugs();
+  const [slugs, projectSlugs] = await Promise.all([
+    getAllSlugs(),
+    getProjectSlugs(),
+  ]);
 
   const staticRoutes = ["", "/logs", "/proyectos", "/legal"];
   const entries: MetadataRoute.Sitemap = staticRoutes.flatMap((path) =>
@@ -22,9 +24,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   );
 
-  const projectEntries: MetadataRoute.Sitemap = projects.flatMap((p) =>
+  const projectEntries: MetadataRoute.Sitemap = projectSlugs.flatMap((slug) =>
     ["es", "en"].map((locale) => ({
-      url: `${BASE_URL}${locale === "en" ? "/en" : ""}/proyectos/${p.slug}`,
+      url: `${BASE_URL}${locale === "en" ? "/en" : ""}/proyectos/${slug}`,
       lastModified: new Date(),
     }))
   );

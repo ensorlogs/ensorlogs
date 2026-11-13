@@ -4,6 +4,8 @@ import { signOut } from "@/app/(admin)/admin/actions";
 const LINKS = [
   { href: "/admin", label: "Panel" },
   { href: "/admin/logs", label: "Logs" },
+  { href: "/admin/projects", label: "Proyectos" },
+  { href: "/admin/leads", label: "Leads" },
 ];
 
 export default function AdminShell({

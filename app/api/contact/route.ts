@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { isBrevoConfigured, sendContactEmail, upsertContact } from "@/lib/brevo";
+import { saveLead } from "@/lib/leads";
 
 const schema = z.object({
   name: z.string().trim().min(1).max(120),
@@ -42,6 +43,13 @@ export async function POST(request: Request) {
     upsertContact(payload).catch((err) =>
       console.warn("[contact] upsertContact failed:", err)
     );
+    saveLead({
+      email: payload.email,
+      name: payload.name,
+      service: payload.type,
+      message: payload.message,
+      source: "contact",
+    }).catch(() => {});
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[contact] send failed:", err);

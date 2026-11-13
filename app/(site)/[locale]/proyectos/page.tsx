@@ -3,7 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/lib/data";
+import type { Project } from "@/data/projects";
 import type { Locale } from "@/lib/types";
 
 export async function generateMetadata({
@@ -23,11 +24,14 @@ export default async function ProjectsPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const projects = await getProjects();
 
-  return <ProjectsView locale={locale as Locale} />;
+  return <ProjectsView locale={locale as Locale} projects={projects} />;
 }
 
-function ProjectsView({ locale }: { locale: Locale }) {
+export const revalidate = 60;
+
+function ProjectsView({ locale, projects }: { locale: Locale; projects: Project[] }) {
   const t = useTranslations("projects");
 
   return (

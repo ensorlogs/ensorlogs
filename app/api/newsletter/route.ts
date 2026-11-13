@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { isBrevoConfigured, subscribeNewsletter } from "@/lib/brevo";
+import { saveLead } from "@/lib/leads";
 
 const schema = z.object({
   email: z.string().trim().email().max(200),
@@ -26,6 +27,7 @@ export async function POST(request: Request) {
 
   try {
     await subscribeNewsletter(payload.email);
+    saveLead({ email: payload.email, source: "newsletter" }).catch(() => {});
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[newsletter] subscribe failed:", err);

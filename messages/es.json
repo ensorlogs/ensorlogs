@@ -23,7 +23,12 @@
       "title": "ABOUT.TXT",
       "heading": "Detrás de Ensor.Logs",
       "body": "El de la foto soy yo, junto a quien realmente manda en la casa 😂: mi esposa ❤️, la arquitecta Nina Marquina — y nuestro Schnauzer Toffu, el guardián del hogar.\n\nConstructor de sistemas de día, gamer de noche. Trabajo la tecnología con una regla: tiene que resolver algo real. Todo lo que ves en esta habitación corre en mi propio servidor — si lo recomiendo, es porque lo uso.",
-      "tags": ["familia", "schnauzer", "arquitecta", "bitacora"]
+      "tags": [
+        "familia",
+        "schnauzer",
+        "arquitecta",
+        "bitacora"
+      ]
     },
     "me": {
       "label": "Ensor",
@@ -36,7 +41,12 @@
       "title": "SERVICES.EXE",
       "heading": "Desarrollo web · Apps · IA",
       "body": "Desde estos monitores salen los proyectos:\n\n• Desarrollo web y aplicaciones a medida\n• Automatización de procesos con IA y agentes\n• Arquitectura de sistemas, APIs e integraciones\n\n¿Necesitas algo así? Puedes solicitar mis servicios. Portfolio completo: próximamente.",
-      "tags": ["web", "apps", "ia", "sistemas"],
+      "tags": [
+        "web",
+        "apps",
+        "ia",
+        "sistemas"
+      ],
       "cta": "Solicitar mis servicios →"
     },
     "server": {
@@ -44,7 +54,12 @@
       "title": "INFRA.SYS",
       "heading": "Servidor & Self-hosting",
       "body": "El rack corre Ubuntu + Docker: Home Assistant, backups, la red interna y los servicios de esta misma web.\n\nLo mismo lo monto para casas y negocios: servidores locales, NAS, backups automáticos y servicios propios sin suscripciones eternas.",
-      "tags": ["home-assistant", "ubuntu", "docker", "backups"],
+      "tags": [
+        "home-assistant",
+        "ubuntu",
+        "docker",
+        "backups"
+      ],
       "cta": "Quiero mi propio servidor →"
     },
     "iot": {
@@ -52,7 +67,12 @@
       "title": "DOMOTICA.SYS",
       "heading": "Domótica & IoT",
       "body": "Cada dispositivo de esta habitación reporta a Home Assistant: bombillas, enchufes, sensores de temperatura, humedad y calidad de aire, cerradura inteligente y cámara.\n\nEso mismo instalo y configuro para ti:\n\n• Automatización de iluminación y clima\n• Sensores, alertas y monitorización\n• Seguridad: cerraduras y cámaras\n• Todo local — funciona aunque se caiga internet",
-      "tags": ["sensores", "automatizacion", "seguridad", "energia"],
+      "tags": [
+        "sensores",
+        "automatizacion",
+        "seguridad",
+        "energia"
+      ],
       "cta": "Automatizar mi espacio →"
     },
     "fun": {
@@ -60,7 +80,12 @@
       "title": "OFFLINE.MODE",
       "heading": "Modo desconexión",
       "body": "La Nintendo Switch es mi consola de cabecera: Super Smash Bros, Zelda y Mario Kart hasta que duelan los pulgares.\n\nLos toques personales no son decoración: recuerdan que la tecnología es para vivir mejor, no para vivir trabajando.",
-      "tags": ["nintendo", "smash", "zelda", "mario-kart"]
+      "tags": [
+        "nintendo",
+        "smash",
+        "zelda",
+        "mario-kart"
+      ]
     },
     "contact": {
       "label": "Escríbeme",
@@ -205,6 +230,8 @@
     "switch_locale": "Cambiar idioma",
     "music_on": "Activar música lofi",
     "music_off": "Quitar música",
-    "skip": "Saltar al contenido"
+    "skip": "Saltar al contenido",
+    "push_on": "Activar notificaciones",
+    "push_off": "Desactivar notificaciones"
   }
 }

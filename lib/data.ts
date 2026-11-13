@@ -1,7 +1,8 @@
 import { seedLogs } from "@/data/seed-logs";
+import { projects as seedProjects, type Project } from "@/data/projects";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { createPublicClient } from "@/lib/supabase/public";
-import type { Locale, Log, LogRow } from "@/lib/types";
+import type { Locale, Log, LogRow, ProjectRow } from "@/lib/types";
 
 function localizeLog(row: LogRow, locale: Locale, index: number): Log {
   return {
@@ -69,4 +70,69 @@ export async function getLogBySlug(
 export async function getAllSlugs(): Promise<string[]> {
   const rows = await fetchPublished();
   return rows.map((r) => r.slug);
+}
+
+function localizeProject(row: ProjectRow): Project {
+  return {
+    slug: row.slug,
+    name: row.name,
+    image: row.image ?? "",
+    tag: { es: row.tag_es ?? "", en: row.tag_en ?? row.tag_es ?? "" },
+    summary: {
+      es: row.summary_es ?? "",
+      en: row.summary_en ?? row.summary_es ?? "",
+    },
+    stack: Array.isArray(row.stack) ? row.stack : [],
+    metric: row.metric_value
+      ? {
+          value: row.metric_value,
+          es: row.metric_es ?? "",
+          en: row.metric_en ?? row.metric_es ?? "",
+        }
+      : undefined,
+    url: row.external_url ?? undefined,
+    detail: {
+      es: {
+        context: row.context_es ?? "",
+        solution: row.solution_es ?? "",
+        results: row.results_es ?? undefined,
+      },
+      en: {
+        context: row.context_en ?? row.context_es ?? "",
+        solution: row.solution_en ?? row.solution_es ?? "",
+        results: row.results_en ?? row.results_es ?? undefined,
+      },
+    },
+  };
+}
+
+async function fetchProjects(): Promise<ProjectRow[]> {
+  if (!isSupabaseConfigured()) return [];
+  const supabase = createPublicClient();
+  const { data, error } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("published", true)
+    .order("position", { ascending: true });
+  if (error || !data) return [];
+  return data as ProjectRow[];
+}
+
+/** Published projects — Supabase first, seed data as fallback. */
+export async function getProjects(): Promise<Project[]> {
+  const rows = await fetchProjects();
+  const source = rows.length > 0 ? rows.map(localizeProject) : seedProjects;
+  return source;
+}
+
+export async function getProjectBySlug(
+  slug: string
+): Promise<Project | null> {
+  const list = await getProjects();
+  return list.find((p) => p.slug === slug) ?? null;
+}
+
+export async function getProjectSlugs(): Promise<string[]> {
+  const list = await getProjects();
+  return list.map((p) => p.slug);
 }

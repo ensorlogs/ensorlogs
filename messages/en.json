@@ -23,7 +23,12 @@
       "title": "ABOUT.TXT",
       "heading": "Behind Ensor.Logs",
       "body": "That's me in the photo, next to who actually runs the house 😂: my wife ❤️, architect Nina Marquina — and our Schnauzer Toffu, the household guardian.\n\nSystems builder by day, gamer by night. I work technology with one rule: it has to solve something real. Everything you see in this room runs on my own server — if I recommend it, it's because I use it.",
-      "tags": ["family", "schnauzer", "architect", "logbook"]
+      "tags": [
+        "family",
+        "schnauzer",
+        "architect",
+        "logbook"
+      ]
     },
     "me": {
       "label": "Ensor",
@@ -36,7 +41,12 @@
       "title": "SERVICES.EXE",
       "heading": "Web dev · Apps · AI",
       "body": "Projects ship from these monitors:\n\n• Custom web development and applications\n• Process automation with AI and agents\n• Systems architecture, APIs and integrations\n\nNeed something like this? You can request my services. Full portfolio: coming soon.",
-      "tags": ["web", "apps", "ai", "systems"],
+      "tags": [
+        "web",
+        "apps",
+        "ai",
+        "systems"
+      ],
       "cta": "Request my services →"
     },
     "server": {
@@ -44,7 +54,12 @@
       "title": "INFRA.SYS",
       "heading": "Server & Self-hosting",
       "body": "The rack runs Ubuntu + Docker: Home Assistant, backups, the internal network and the services behind this very website.\n\nI set up the same for homes and businesses: local servers, NAS, automatic backups and owned services — no endless subscriptions.",
-      "tags": ["home-assistant", "ubuntu", "docker", "backups"],
+      "tags": [
+        "home-assistant",
+        "ubuntu",
+        "docker",
+        "backups"
+      ],
       "cta": "I want my own server →"
     },
     "iot": {
@@ -52,7 +67,12 @@
       "title": "DOMOTICA.SYS",
       "heading": "Domotics & IoT",
       "body": "Every device in this room reports to Home Assistant: bulbs, plugs, temperature, humidity and air quality sensors, the smart lock and the camera.\n\nI install and configure the same for you:\n\n• Lighting and climate automation\n• Sensors, alerts and monitoring\n• Security: smart locks and cameras\n• All local — works even when the internet is down",
-      "tags": ["sensors", "automation", "security", "energy"],
+      "tags": [
+        "sensors",
+        "automation",
+        "security",
+        "energy"
+      ],
       "cta": "Automate my space →"
     },
     "fun": {
@@ -60,7 +80,12 @@
       "title": "OFFLINE.MODE",
       "heading": "Offline mode",
       "body": "The Nintendo Switch is my go-to console: Super Smash Bros, Zelda and Mario Kart until my thumbs hurt.\n\nThe personal touches aren't decoration: they're a reminder that technology is for living better, not for living at work.",
-      "tags": ["nintendo", "smash", "zelda", "mario-kart"]
+      "tags": [
+        "nintendo",
+        "smash",
+        "zelda",
+        "mario-kart"
+      ]
     },
     "contact": {
       "label": "Write me",
@@ -205,6 +230,8 @@
     "switch_locale": "Switch language",
     "music_on": "Play lofi music",
     "music_off": "Stop music",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "push_on": "Enable notifications",
+    "push_off": "Disable notifications"
   }
 }

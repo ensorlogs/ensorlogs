@@ -4,11 +4,15 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { projects } from "@/data/projects";
+import { getProjectBySlug, getProjectSlugs } from "@/lib/data";
+import type { Project } from "@/data/projects";
 import type { Locale } from "@/lib/types";
 
-export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const slugs = await getProjectSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -17,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = await getProjectBySlug(slug);
   if (!project) return {};
   return {
     title: project.name,
@@ -32,7 +36,7 @@ export default async function ProjectPage({
 }) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const project = projects.find((p) => p.slug === slug);
+  const project = await getProjectBySlug(slug);
   if (!project) notFound();
 
   return <ProjectView project={project} locale={locale as Locale} />;
@@ -42,7 +46,7 @@ function ProjectView({
   project,
   locale,
 }: {
-  project: (typeof projects)[number];
+  project: Project;
   locale: Locale;
 }) {
   const t = useTranslations("projects");
