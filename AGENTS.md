@@ -19,4 +19,4 @@ Personal brand site: retro 1-bit / pixel-art aesthetic, dark theme, amber accent
 - **Data layer**: `lib/data.ts` returns seed data (`data/seed-logs.ts`) until `NEXT_PUBLIC_SUPABASE_URL` exists, then reads Supabase. One unified `logs` table — `type: 'log' | 'story'` (story = video log with `video_url`), `_es`/`_en` columns localized by locale.
 - **Admin** `/admin`: Supabase Auth guard in `proxy.ts` → `lib/supabase/session.ts`. Without env vars it renders `SupabaseNotice`.
 - **Brevo**: `app/api/contact/route.ts` simulates sends when `BREVO_API_KEY` is unset.
-- New hotspot: id in `components/hero/hotspots.ts` + SVG zone in `Room.tsx` + `hotspots.<id>` strings in both message files.
+- **Hero**: real illustration `public/room-desktop.jpg` + `room-mobile.jpg` with % positioned zones in `components/hero/room-zones.ts`; zone `id` opens `RetroWindow` modal (strings in `hotspots.<id>`), zone `egg` shows tooltip only (strings in `eggs.<id>`). Services live inside hotspot modals — there is no services section.

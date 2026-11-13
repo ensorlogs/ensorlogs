@@ -12,75 +12,57 @@
   "hero": {
     "kicker": "> ejecutar ensor_room.exe",
     "title": "ENSOR.LOGS",
-    "subtitle": "Desarrollo, domótica y tecnología con criterio.",
-    "hint_desktop": "Haz clic en los puntos brillantes de la habitación",
-    "hint_mobile": "Toca los puntos brillantes o usa los accesos",
+    "subtitle": "Domótica, IA y desarrollo — desde una habitación que sí existe.",
+    "hint_desktop": "Explora la habitación: cada dispositivo cuenta algo. Haz clic en los puntos brillantes",
+    "hint_mobile": "Explora la habitación: toca los puntos brillantes o usa los accesos",
     "hotspots_label": "Explorar la habitación"
   },
   "hotspots": {
     "about": {
-      "label": "Cuadro familiar",
+      "label": "El equipo",
       "title": "ABOUT.TXT",
-      "heading": "Sobre mí / Filosofía",
-      "body": "Soy Ensor: desarrollador, automático de profesión y curioso por vocación. En el cuadro: mi esposa, nuestro Schnauzer y yo — el equipo real detrás de Ensor.Logs.\n\nMi filosofía: la tecnología debe ser silenciosa y útil. Si un sistema necesita que alguien lo entienda para funcionar, está mal diseñado. Documento lo que aprendo construyendo cosas reales, sin humo.",
+      "heading": "Detrás de Ensor.Logs",
+      "body": "El de la foto soy yo, con mi esposa y el Schnauzer que realmente manda en la casa. Constructor de sistemas de día, jugador de Zelda de noche.\n\nTrabajo la tecnología con una regla: tiene que resolver algo real. Todo lo que ves en esta habitación corre en mi propio servidor — si lo recomiendo, es porque lo uso.",
       "tags": ["familia", "schnauzer", "filosofia", "bitacora"]
     },
     "dev": {
-      "label": "Doble monitor",
-      "title": "SERVICES.DEV",
-      "heading": "Desarrollo de software",
-      "body": "Desde esta estación salen aplicaciones web completas, arquitecturas de sistemas y herramientas a medida.\n\n• Aplicaciones web (Next.js, TypeScript, Supabase)\n• Arquitectura de sistemas y APIs\n• Automatización de procesos de negocio\n• Integraciones: CRM, pagos, correo transaccional",
-      "tags": ["nextjs", "typescript", "arquitectura", "web-apps"]
+      "label": "Estación de trabajo",
+      "title": "SERVICES.EXE",
+      "heading": "Desarrollo · IA · Sistemas",
+      "body": "Desde estos monitores salen los proyectos:\n\n• Aplicaciones web a medida (Next.js, TypeScript)\n• Automatización de procesos con IA y agentes\n• Arquitectura de sistemas, APIs e integraciones\n• Dashboards y herramientas internas para negocios",
+      "tags": ["ia", "apps", "web", "sistemas"],
+      "cta": "Hablemos de tu proyecto →"
     },
     "server": {
-      "label": "Servidor local",
-      "title": "HOME.SERVER",
-      "heading": "Domótica & Home Server",
-      "body": "Ubuntu Server + Home Assistant + Docker: el cerebro local de la casa.\n\n• Automatizaciones que no dependen de la nube\n• Zigbee2MQTT para sensores sin hubs propietarios\n• Backups automáticos y monitorización\n• Self-hosting: mis servicios, mis reglas",
-      "tags": ["home-assistant", "ubuntu", "docker", "self-hosted"]
+      "label": "El rack",
+      "title": "INFRA.SYS",
+      "heading": "Servidor & Self-hosting",
+      "body": "El rack corre Ubuntu + Docker: Home Assistant, backups, la red interna y los servicios de esta misma web.\n\nLo mismo lo monto para casas y negocios: servidores locales, NAS, backups automáticos y servicios propios sin suscripciones eternas.",
+      "tags": ["home-assistant", "ubuntu", "docker", "backups"],
+      "cta": "Quiero mi propio servidor →"
     },
     "iot": {
-      "label": "Sensores IoT",
-      "title": "IOT.DEVICES",
-      "heading": "IoT & Construtech",
-      "body": "La pared está llena de ojos: sensores de movimiento, temperatura y calidad de aire, más una cerradura inteligente en la puerta.\n\nEn obra aplico lo mismo: bombas de agua inteligentes, telemetría de nivel, alertas automáticas y dashboards de estado. Construtech es hacer que los datos trabajen antes de que el problema exista.",
-      "tags": ["sensores", "cerradura-smart", "bombas-agua", "telemetria"]
+      "label": "Domótica",
+      "title": "DOMOTICA.SYS",
+      "heading": "Domótica & IoT",
+      "body": "Cada dispositivo de esta habitación reporta a Home Assistant: bombillas, enchufes, sensores de temperatura, humedad y calidad de aire, cerradura inteligente y cámara.\n\nEso mismo instalo y configuro para ti:\n\n• Automatización de iluminación y clima\n• Sensores, alertas y monitorización\n• Seguridad: cerraduras y cámaras\n• Todo local — funciona aunque se caiga internet",
+      "tags": ["sensores", "automatizacion", "seguridad", "energia"],
+      "cta": "Automatizar mi espacio →"
     },
     "fun": {
-      "label": "Zona de ocio",
+      "label": "Zona personal",
       "title": "OFFLINE.MODE",
       "heading": "Modo desconexión",
-      "body": "Nintendo Switch para las sesiones de Zelda y Mario Kart. El banderín de los Boston Red Sox porque hay equipos que se eligen con el corazón.\n\nAquí desconecto para volver con mejores ideas. El mejor debugging a veces es una partida y un café.",
-      "tags": ["nintendo-switch", "red-sox", "gaming", "cafe"]
+      "body": "Nintendo Switch para Zelda y Mario Kart, la cafetera que sostiene la operación y un póster de El Tigre.\n\nLos toques personales no son decoración: recuerdan que la tecnología es para vivir mejor, no para vivir trabajando.",
+      "tags": ["nintendo", "cafe", "gaming", "descanso"]
     }
   },
-  "services": {
-    "kicker": "> listar verticales",
-    "title": "Servicios",
-    "subtitle": "Cuatro verticales, un mismo criterio: tecnología que resuelve.",
-    "items": {
-      "domotics": {
-        "title": "Domótica & IoT",
-        "desc": "Casas y negocios que se gestionan solos.",
-        "points": ["Home Assistant a medida", "Sensores y actuadores", "Automatizaciones sin nube", "Redes IoT seguras"]
-      },
-      "ai": {
-        "title": "Inteligencia Artificial",
-        "desc": "IA integrada en procesos reales.",
-        "points": ["Agentes para tareas de negocio", "Automatización con LLMs", "Chatbots y asistentes internos", "Auditoría de flujos con IA"]
-      },
-      "construtech": {
-        "title": "Smart Construction",
-        "desc": "Telemetría y datos para obra.",
-        "points": ["Sensores de nivel y caudal", "Bombas y equipos inteligentes", "Alertas y dashboards", "Gestión remota de activos"]
-      },
-      "tourism": {
-        "title": "Tourism Tech",
-        "desc": "Reservas y operaciones sin fricción.",
-        "points": ["Motores de reserva", "Automatización de confirmaciones", "Integración de calendarios", "Paneles de ocupación"]
-      }
-    },
-    "cta": "Consultar"
+  "eggs": {
+    "tigre": "El Tigre — pura vida desde Costa Rica.",
+    "window": "Montañas de verdad. El mejor render del setup.",
+    "tux": "Linux, Harry Potter y Tux: la trinidad del setup.",
+    "coffee": "Dependencia crítica: el café no se automatiza.",
+    "machine": "La infraestructura más importante de la casa."
   },
   "logs": {
     "kicker": "> tail -f /var/log/ensor",

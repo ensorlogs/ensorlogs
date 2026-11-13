@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import Room from "./Room";
+import RoomScene from "./RoomScene";
 import { HOTSPOT_IDS, type HotspotId } from "./hotspots";
 import RetroWindow from "@/components/os/RetroWindow";
+import { Link } from "@/i18n/navigation";
 
 export default function HeroSection() {
   const t = useTranslations();
@@ -18,6 +19,7 @@ export default function HeroSection() {
   const tags: string[] = active
     ? (t.raw(`hotspots.${active}.tags`) as string[])
     : [];
+  const hasCta = active ? t.has(`hotspots.${active}.cta`) : false;
 
   return (
     <section className="relative">
@@ -29,19 +31,19 @@ export default function HeroSection() {
         {t("hero.subtitle")}
       </p>
 
-      <div className="crt-overlay crt-vignette pixel-border relative mt-6 bg-ink-2">
-        <Room onHotspot={setActive} labels={labels} />
+      <div className="pixel-border-amber relative mt-6 overflow-hidden">
+        <RoomScene onHotspot={setActive} labels={labels} />
       </div>
 
-      <p className="font-term mt-3 hidden text-dim sm:block">
+      <p className="font-term mt-3 hidden text-dim md:block">
         <span className="text-phosphor">▸</span> {t("hero.hint_desktop")}
       </p>
-      <p className="font-term mt-3 text-dim sm:hidden">
+      <p className="font-term mt-3 text-dim md:hidden">
         <span className="text-phosphor">▸</span> {t("hero.hint_mobile")}
       </p>
 
       {/* Mobile shortcut list — same hotspots, larger touch targets */}
-      <nav aria-label={t("hero.hotspots_label")} className="mt-4 sm:hidden">
+      <nav aria-label={t("hero.hotspots_label")} className="mt-4 md:hidden">
         <ul className="grid grid-cols-2 gap-2">
           {HOTSPOT_IDS.map((id) => (
             <li key={id}>
@@ -85,6 +87,15 @@ export default function HeroSection() {
                 </li>
               ))}
             </ul>
+            {hasCta && (
+              <Link
+                href="/#contact"
+                onClick={() => setActive(null)}
+                className="font-pixel pixel-border-amber mt-5 inline-block bg-amber px-4 py-2.5 text-[0.55rem] text-ink"
+              >
+                {t(`hotspots.${active}.cta`)}
+              </Link>
+            )}
           </div>
         )}
       </RetroWindow>

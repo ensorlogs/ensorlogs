@@ -3,7 +3,6 @@ import { setRequestLocale } from "next-intl/server";
 import { getLogs, getVideoLogs } from "@/lib/data";
 import type { Locale } from "@/lib/types";
 import HeroSection from "@/components/hero/HeroSection";
-import ServicesGrid from "@/components/services/ServicesGrid";
 import LogCard from "@/components/logs/LogCard";
 import LogFeed from "@/components/logs/LogFeed";
 import ContactForm from "@/components/contact/ContactForm";
@@ -80,8 +79,6 @@ function HomeContent({
       </section>
 
       <ContactForm />
-
-      <ServicesGrid />
     </div>
   );
 }

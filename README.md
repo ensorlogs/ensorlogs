@@ -40,7 +40,8 @@ Para activar el backend real, copia `.env.example` → `.env.local` y sigue
 app/(site)/[locale]/   Web pública ES/EN: /, /logs, /logs/[slug]
 app/(admin)/admin/     Panel: login, CRUD de logs (texto y video)
 app/api/contact/       Route handler → Brevo
-components/hero/       Room.tsx — habitación 1-bit SVG + hotspots
+components/hero/       RoomScene.tsx + room-zones.ts — ilustración real
+                       (room-desktop.jpg / room-mobile.jpg) con hotspots
 components/os/         RetroWindow (modal), WindowFrame (cards)
 components/logs/       LogCard + LogFeed — feed vertical scroll-snap tipo TikTok
 lib/data.ts            Capa de datos: Supabase si hay env, si no seed local
@@ -53,14 +54,17 @@ proxy.ts               i18n routing + guard de /admin (antes middleware.ts)
 
 | Zona | Abre |
 |---|---|
-| Cuadro familiar | Sobre mí / filosofía |
-| Doble monitor | Servicios de desarrollo |
-| Rack servidor | Domótica / Home Assistant |
-| Puerta + sensores + bombas | IoT / Construtech |
-| Switch + banderín Red Sox | Ocio |
+| Foto + persona + Schnauzer | Sobre mí / el equipo |
+| Doble monitor + laptop | Servicios: dev, IA, sistemas |
+| Rack servidor | Infraestructura / self-hosting |
+| Sensores, puerta, cámara, bomba | Domótica & IoT (menú de servicios) |
+| Switch + estantes | Zona personal |
 
-Añadir uno nuevo: nuevo `id` en `components/hero/hotspots.ts`, zona SVG en
-`Room.tsx`, y sus textos en `messages/{es,en}.json` → `hotspots.<id>`.
+Además hay **easter eggs** sin marcador (El Tigre, la ventana, Tux, el café):
+solo tooltip al pasar el mouse o tocarlos.
+
+Añadir/mover zonas: `components/hero/room-zones.ts` (coordenadas en % para
+desktop y mobile). Textos: `messages/{es,en}.json` → `hotspots.<id>` y `eggs.<id>`.
 
 ## Scripts
 
