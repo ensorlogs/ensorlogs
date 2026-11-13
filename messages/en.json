@@ -34,7 +34,8 @@
       "label": "Ensor",
       "title": "ENSOR.BIO",
       "heading": "Ensor — Systems Engineer",
-      "body": "My name is Ensor, systems engineer with 10+ years of experience in this geek world.\n\nThese days I'm focused on bringing AI into real development: applications, domotics and concrete cases in tourism and construction — not theory, projects that actually work.\n\nNeed my services? Feel free to contact me:"
+      "body": "My name is Ensor, systems engineer with 10+ years of experience in this geek world.\n\nThese days I'm focused on bringing AI into real development: applications, domotics and concrete cases in tourism and construction — not theory, projects that actually work.\n\nNeed my services? Feel free to contact me:",
+      "cta_experience": "See my experience →"
     },
     "dev": {
       "label": "Workstation",
@@ -240,5 +241,16 @@
     "skip": "Skip to content",
     "push_on": "Enable notifications",
     "push_off": "Disable notifications"
+  },
+  "experience": {
+    "kicker": "> cat ~/experience.log",
+    "title": "My Experience",
+    "subtitle": "10+ years building systems: IT operations in Punta Cana, web development, university teaching and free-software community work in Venezuela.",
+    "jobs_heading": "// TRACK RECORD",
+    "events_heading": "// TALKS & COMMUNITY",
+    "events_intro": "Talks, workshops and activism: bringing Linux, WordPress and open tools to more people.",
+    "edu_heading": "// EDUCATION",
+    "cta_text": "Want to work with me or have me run a workshop at your venue?",
+    "cta_button": "Let's talk →"
   }
 }

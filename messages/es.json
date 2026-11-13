@@ -34,7 +34,8 @@
       "label": "Ensor",
       "title": "ENSOR.BIO",
       "heading": "Ensor — Ing. de Sistemas",
-      "body": "Mi nombre es Ensor, ingeniero de sistemas con más de 10 años de experiencia en este mundo geek.\n\nHoy estoy enfocado en llevar la IA al desarrollo real: aplicaciones, domótica y casos concretos en turismo y construcción — no teoría, proyectos que funcionan.\n\n¿Necesitas mis servicios? Con gusto puedes contactarme:"
+      "body": "Mi nombre es Ensor, ingeniero de sistemas con más de 10 años de experiencia en este mundo geek.\n\nHoy estoy enfocado en llevar la IA al desarrollo real: aplicaciones, domótica y casos concretos en turismo y construcción — no teoría, proyectos que funcionan.\n\n¿Necesitas mis servicios? Con gusto puedes contactarme:",
+      "cta_experience": "Ver mi experiencia →"
     },
     "dev": {
       "label": "Estación de trabajo",
@@ -240,5 +241,16 @@
     "skip": "Saltar al contenido",
     "push_on": "Activar notificaciones",
     "push_off": "Desactivar notificaciones"
+  },
+  "experience": {
+    "kicker": "> cat ~/experiencia.log",
+    "title": "Mi Experiencia",
+    "subtitle": "Más de 10 años construyendo sistemas: operaciones IT en Punta Cana, desarrollo web, docencia universitaria y comunidad de software libre en Venezuela.",
+    "jobs_heading": "// TRAYECTORIA",
+    "events_heading": "// PONENCIAS & COMUNIDAD",
+    "events_intro": "Charlas, talleres y activismo: acercando Linux, WordPress y herramientas abiertas a más personas.",
+    "edu_heading": "// FORMACIÓN",
+    "cta_text": "¿Quieres trabajar conmigo o que dé un taller en tu espacio?",
+    "cta_button": "Hablemos →"
   }
 }

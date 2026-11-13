@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getProjectSlugs(),
   ]);
 
-  const staticRoutes = ["", "/logs", "/proyectos", "/legal"];
+  const staticRoutes = ["", "/logs", "/proyectos", "/experiencia", "/legal"];
   const entries: MetadataRoute.Sitemap = staticRoutes.flatMap((path) =>
     ["es", "en"].map((locale) => ({
       url: `${BASE_URL}${locale === "en" ? "/en" : ""}${path}`,

@@ -225,9 +225,17 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
               </>
             )}
             {active === "me" && (
-              <div className="border-line mt-4 border-t-2 pt-4">
-                <ContactForm />
-              </div>
+              <>
+                <Link
+                  href="/experiencia"
+                  className="font-pixel pixel-border mt-4 inline-block border-amber bg-ink-2 px-4 py-2.5 text-[0.55rem] text-amber transition-colors hover:bg-amber hover:text-ink"
+                >
+                  {t("hotspots.me.cta_experience")}
+                </Link>
+                <div className="border-line mt-4 border-t-2 pt-4">
+                  <ContactForm />
+                </div>
+              </>
             )}
           </div>
         )}
