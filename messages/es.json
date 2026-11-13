@@ -40,14 +40,15 @@
       "label": "Estación de trabajo",
       "title": "SERVICES.EXE",
       "heading": "Desarrollo web · Apps · IA",
-      "body": "Desde estos monitores salen los proyectos:\n\n• Desarrollo web y aplicaciones a medida\n• Automatización de procesos con IA y agentes\n• Arquitectura de sistemas, APIs e integraciones\n\n¿Necesitas algo así? Puedes solicitar mis servicios. Portfolio completo: próximamente.",
+      "body": "Desde estos monitores salen los proyectos:\n\n• Desarrollo web y aplicaciones a medida\n• Automatización de procesos con IA y agentes\n• Arquitectura de sistemas, APIs e integraciones\n\n¿Necesitas algo así? Puedes solicitar mis servicios.",
       "tags": [
         "web",
         "apps",
         "ia",
         "sistemas"
       ],
-      "cta": "Solicitar mis servicios →"
+      "cta": "Solicitar mis servicios →",
+      "cta_projects": "Ver mis proyectos →"
     },
     "server": {
       "label": "El rack",

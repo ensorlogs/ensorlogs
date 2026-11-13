@@ -159,17 +159,25 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
               </button>
             )}
             {active === "dev" && (
-              <div className="border-line mt-4 border-t-2 pt-3">
-                <p className="font-term mb-2 text-base text-dim">
-                  {t("newsletter.pitch")}
-                </p>
-                <button
-                  onClick={() => setActive("newsletter")}
-                  className="font-term text-lg text-amber underline decoration-dotted underline-offset-4 hover:text-amber-soft"
+              <>
+                <Link
+                  href="/proyectos"
+                  className="font-pixel pixel-border mt-4 inline-block border-amber bg-ink-2 px-4 py-2.5 text-[0.55rem] text-amber transition-colors hover:bg-amber hover:text-ink"
                 >
-                  {t("newsletter.cta")}
-                </button>
-              </div>
+                  {t("hotspots.dev.cta_projects")}
+                </Link>
+                <div className="border-line mt-4 border-t-2 pt-3">
+                  <p className="font-term mb-2 text-base text-dim">
+                    {t("newsletter.pitch")}
+                  </p>
+                  <button
+                    onClick={() => setActive("newsletter")}
+                    className="font-term text-lg text-amber underline decoration-dotted underline-offset-4 hover:text-amber-soft"
+                  >
+                    {t("newsletter.cta")}
+                  </button>
+                </div>
+              </>
             )}
             {active === "me" && (
               <div className="border-line mt-4 border-t-2 pt-4">

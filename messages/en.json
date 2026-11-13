@@ -40,14 +40,15 @@
       "label": "Workstation",
       "title": "SERVICES.EXE",
       "heading": "Web dev · Apps · AI",
-      "body": "Projects ship from these monitors:\n\n• Custom web development and applications\n• Process automation with AI and agents\n• Systems architecture, APIs and integrations\n\nNeed something like this? You can request my services. Full portfolio: coming soon.",
+      "body": "Projects ship from these monitors:\n\n• Custom web development and applications\n• Process automation with AI and agents\n• Systems architecture, APIs and integrations\n\nNeed something like this? You can request my services.",
       "tags": [
         "web",
         "apps",
         "ai",
         "systems"
       ],
-      "cta": "Request my services →"
+      "cta": "Request my services →",
+      "cta_projects": "See my projects →"
     },
     "server": {
       "label": "The rack",
