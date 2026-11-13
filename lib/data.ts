@@ -83,6 +83,7 @@ function localizeProject(row: ProjectRow): Project {
       en: row.summary_en ?? row.summary_es ?? "",
     },
     stack: Array.isArray(row.stack) ? row.stack : [],
+    images: Array.isArray(row.images) ? row.images : [],
     metric: row.metric_value
       ? {
           value: row.metric_value,

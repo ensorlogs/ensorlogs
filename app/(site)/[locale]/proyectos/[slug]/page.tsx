@@ -135,6 +135,33 @@ function ProjectView({
             </section>
           )}
 
+          {project.images && project.images.length > 0 && (
+            <section className="mt-6">
+              <h2 className="font-pixel text-[0.6rem] text-phosphor">
+                {t("gallery")}
+              </h2>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {project.images.map((src) => (
+                  <a
+                    key={src}
+                    href={src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pixel-border relative block aspect-video overflow-hidden"
+                  >
+                    <Image
+                      src={src}
+                      alt={`${project.name} — captura`}
+                      fill
+                      unoptimized
+                      className="object-cover transition-transform hover:scale-105"
+                    />
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
           {project.url && (
             <a
               href={project.url}

@@ -175,6 +175,27 @@ export async function saveProject(formData: FormData) {
     image = data.publicUrl;
   }
 
+  // gallery: textarea paths (one per line) + any uploaded files appended
+  const images = String(formData.get("images") ?? "")
+    .split("\n")
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const galleryFiles = formData.getAll("gallery_files");
+  for (const f of galleryFiles) {
+    if (f instanceof File && f.size > 0) {
+      const ext = f.name.split(".").pop() ?? "webp";
+      const path = `projects/${crypto.randomUUID()}.${ext}`;
+      const { error: upErr } = await supabase.storage
+        .from("stories-media")
+        .upload(path, f, { contentType: f.type });
+      if (upErr) redirect("/admin/projects?error=1");
+      const { data } = supabase.storage
+        .from("stories-media")
+        .getPublicUrl(path);
+      images.push(data.publicUrl);
+    }
+  }
+
   const row = {
     slug: String(formData.get("slug") ?? "").trim() || slugify(name),
     name,
@@ -196,6 +217,7 @@ export async function saveProject(formData: FormData) {
     metric_es: String(formData.get("metric_es") ?? "").trim() || null,
     metric_en: String(formData.get("metric_en") ?? "").trim() || null,
     image,
+    images,
     external_url: String(formData.get("external_url") ?? "").trim() || null,
     position: Number(formData.get("position") ?? 0),
     published,

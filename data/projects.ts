@@ -11,6 +11,7 @@ export type Project = {
   tag: { es: string; en: string };
   summary: { es: string; en: string };
   stack: string[];
+  images?: string[];
   metric?: { value: string; es: string; en: string };
   url?: string;
   detail: { es: ProjectDetail; en: ProjectDetail };

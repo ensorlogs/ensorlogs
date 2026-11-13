@@ -107,6 +107,35 @@ export default function ProjectForm({ project }: { project?: ProjectRow }) {
         </label>
       </div>
 
+      <div className="pixel-border space-y-4 bg-ink-2 p-4">
+        <label className={labelCls}>
+          Galería de capturas (una ruta/URL por línea)
+          <textarea
+            name="images"
+            defaultValue={project?.images?.join("\n") ?? ""}
+            rows={4}
+            placeholder={"/projects/app-1.png\n/projects/app-2.png"}
+            className={`${inputCls} resize-y`}
+          />
+        </label>
+        <label className={labelCls}>
+          …o subir varias capturas (se agregan a la lista)
+          <input
+            name="gallery_files"
+            type="file"
+            accept="image/*"
+            multiple
+            className={`${inputCls} file:font-term file:mr-3 file:border-0 file:bg-amber file:px-3 file:py-1 file:text-ink`}
+          />
+        </label>
+        {project?.images && project.images.length > 0 && (
+          <p className="font-term text-sm text-dim">
+            {project.images.length} captura(s) actuales — al subir archivos
+            nuevos se añaden al final de la lista.
+          </p>
+        )}
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-3">
         <Field
           name="external_url"

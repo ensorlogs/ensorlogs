@@ -44,6 +44,7 @@ export type ProjectRow = {
   metric_es: string | null;
   metric_en: string | null;
   image: string | null;
+  images: string[];
   external_url: string | null;
   position: number;
   published: boolean;

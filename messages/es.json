@@ -174,7 +174,8 @@
     "results": "// RESULTADOS",
     "site": "Visitar el sitio ↗",
     "cta_text": "¿Tienes un proyecto parecido en mente?",
-    "cta_button": "Hablemos →"
+    "cta_button": "Hablemos →",
+    "gallery": "// CAPTURAS"
   },
   "newsletter": {
     "pitch": "¿Te gusta lo que hago? Únete al boletín.",
