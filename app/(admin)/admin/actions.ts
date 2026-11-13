@@ -3,6 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient, isSupabaseConfigured } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/admin";
+import { isBrevoConfigured, sendAccessEmail } from "@/lib/brevo";
 import { notifySubscribers } from "@/lib/push";
 
 function slugify(text: string) {
@@ -17,16 +19,35 @@ function slugify(text: string) {
 export async function sendOtp(formData: FormData) {
   if (!isSupabaseConfigured()) redirect("/admin/login");
   const email = String(formData.get("email") ?? "").trim();
-  const supabase = await createClient();
   const siteUrl = process.env.SITE_URL ?? "https://ensorlogs.com";
-  const { error } = await supabase.auth.signInWithOtp({
-    email,
-    options: {
-      shouldCreateUser: false,
-      emailRedirectTo: `${siteUrl}/auth/confirm`,
-    },
-  });
-  if (error) redirect("/admin/login?error=1");
+
+  if (isBrevoConfigured()) {
+    // Branded link sent through our own mailer (Brevo) — like ninamarquina.
+    const admin = createServiceClient();
+    const { data, error } = await admin.auth.admin.generateLink({
+      type: "magiclink",
+      email,
+    });
+    if (error || !data?.properties?.hashed_token) {
+      redirect("/admin/login?error=1");
+    }
+    const link = `${siteUrl}/auth/confirm?token_hash=${data.properties.hashed_token}&type=email`;
+    try {
+      await sendAccessEmail(email, link, data.properties.email_otp);
+    } catch {
+      redirect("/admin/login?error=1");
+    }
+  } else {
+    const supabase = await createClient();
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        shouldCreateUser: false,
+        emailRedirectTo: `${siteUrl}/auth/confirm`,
+      },
+    });
+    if (error) redirect("/admin/login?error=1");
+  }
   redirect(`/admin/login?sent=1&email=${encodeURIComponent(email)}`);
 }
 
