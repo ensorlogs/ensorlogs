@@ -12,6 +12,10 @@ export default async function proxy(request: NextRequest) {
     return updateSession(request);
   }
 
+  if (pathname === "/auth/confirm") {
+    return;
+  }
+
   return intlMiddleware(request);
 }
 

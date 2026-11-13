@@ -13,14 +13,34 @@ function slugify(text: string) {
     .replace(/(^-|-$)/g, "");
 }
 
-export async function signIn(formData: FormData) {
+export async function sendOtp(formData: FormData) {
   if (!isSupabaseConfigured()) redirect("/admin/login");
+  const email = String(formData.get("email") ?? "").trim();
   const supabase = await createClient();
-  const { error } = await supabase.auth.signInWithPassword({
-    email: String(formData.get("email") ?? ""),
-    password: String(formData.get("password") ?? ""),
+  const siteUrl = process.env.SITE_URL ?? "https://ensorlogs.com";
+  const { error } = await supabase.auth.signInWithOtp({
+    email,
+    options: {
+      shouldCreateUser: false,
+      emailRedirectTo: `${siteUrl}/auth/confirm`,
+    },
   });
   if (error) redirect("/admin/login?error=1");
+  redirect(`/admin/login?sent=1&email=${encodeURIComponent(email)}`);
+}
+
+export async function verifyOtp(formData: FormData) {
+  if (!isSupabaseConfigured()) redirect("/admin/login");
+  const email = String(formData.get("email") ?? "");
+  const supabase = await createClient();
+  const { error } = await supabase.auth.verifyOtp({
+    email,
+    token: String(formData.get("token") ?? "").trim(),
+    type: "email",
+  });
+  if (error) {
+    redirect(`/admin/login?sent=1&code_error=1&email=${encodeURIComponent(email)}`);
+  }
   redirect("/admin");
 }
 
