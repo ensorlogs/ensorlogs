@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import { useTranslations } from "next-intl";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -14,23 +15,29 @@ const SERVICES = [
   "marketing",
 ] as const;
 
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
 export default function ContactForm() {
   const t = useTranslations("contact");
   const [status, setStatus] = useState<Status>("idle");
+  const [fileName, setFileName] = useState<string | null>(null);
+  // render timestamp for the time-trap (bots submit instantly)
+  const [t0] = useState(() => Date.now().toString());
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
     setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: new FormData(form),
       });
       setStatus(res.ok ? "success" : "error");
-      if (res.ok) form.reset();
+      if (res.ok) {
+        form.reset();
+        setFileName(null);
+      }
     } catch {
       setStatus("error");
     }
@@ -99,8 +106,23 @@ export default function ContactForm() {
           name="message"
           required
           rows={4}
+          placeholder={t("message_hint")}
           className={`${inputCls} mt-1 resize-y`}
         />
+      </label>
+      <label className="font-term block cursor-pointer text-lg text-dim sm:col-span-2">
+        {t("attach")}
+        <input
+          name="image"
+          type="file"
+          accept="image/*"
+          className="peer sr-only"
+          onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)}
+        />
+        <span className="border-line bg-ink-2 hover:border-line-2 mt-1 flex items-center gap-3 border-2 border-dashed px-3 py-3 text-base">
+          <span className="font-pixel text-[0.5rem] text-amber">📎 {t("attach_btn")}</span>
+          <span className="text-dim truncate">{fileName ?? t("attach_hint")}</span>
+        </span>
       </label>
       {/* honeypot — invisible to humans */}
       <input
@@ -111,6 +133,20 @@ export default function ContactForm() {
         className="hidden"
         aria-hidden="true"
       />
+      <input name="t0" type="hidden" value={t0} />
+      {TURNSTILE_SITE_KEY && (
+        <>
+          <Script
+            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+            strategy="lazyOnload"
+          />
+          <div
+            className="cf-turnstile sm:col-span-2"
+            data-sitekey={TURNSTILE_SITE_KEY}
+            data-theme="dark"
+          />
+        </>
+      )}
       <div className="sm:col-span-2">
         <button
           type="submit"

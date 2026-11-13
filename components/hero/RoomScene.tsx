@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { DESKTOP_ZONES, MOBILE_ZONES, type Zone } from "./room-zones";
@@ -132,6 +132,15 @@ function Markers({ zones }: { zones: Zone[] }) {
 export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
   const t = useTranslations();
   const [activeZone, setActiveZone] = useState<string | null>(null);
+  // viewport shape: null = SSR/unknown (both videos allowed), true = wide
+  const [wide, setWide] = useState<boolean | null>(null);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-aspect-ratio: 4/3)");
+    const update = () => setWide(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
 
   const zoneLabel = (z: Zone) =>
     z.egg ? t(`eggs.${z.egg}`) : z.id ? labels[z.id] : undefined;
@@ -168,16 +177,20 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           className="object-cover"
         />
         {/* ambient video loop over the still image — object-fill keeps the
-            %-based hotspot zones aligned; hidden for reduced-motion users */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
-        >
-          <source src="/room-loop.mp4" type="video/mp4" />
-        </video>
+            %-based hotspot zones aligned; hidden for reduced-motion users.
+            Only mounted on wide viewports so mobile never downloads it */}
+        {wide === true && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
+          >
+            <source src="/room-loop.mp4" type="video/mp4" />
+          </video>
+        )}
         {renderZones(DESKTOP_ZONES, "d")}
         <Markers zones={DESKTOP_ZONES} />
       </div>
@@ -192,15 +205,18 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           unoptimized
           className="object-cover"
         />
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
-        >
-          <source src="/room-loop-mobile.mp4" type="video/mp4" />
-        </video>
+        {wide === false && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            disablePictureInPicture
+            className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
+          >
+            <source src="/room-loop-mobile.mp4" type="video/mp4" />
+          </video>
+        )}
         {renderZones(MOBILE_ZONES, "m")}
         <Markers zones={MOBILE_ZONES} />
       </div>

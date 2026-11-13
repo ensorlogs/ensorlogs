@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { isBrevoConfigured, subscribeNewsletter } from "@/lib/brevo";
 import { saveLead } from "@/lib/leads";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 const schema = z.object({
   email: z.string().trim().email().max(200),
@@ -9,6 +10,9 @@ const schema = z.object({
 });
 
 export async function POST(request: Request) {
+  if (!rateLimit(`newsletter:${clientIp(request)}`, 5, 60_000)) {
+    return NextResponse.json({ ok: false, error: "rate" }, { status: 429 });
+  }
   let payload: z.infer<typeof schema>;
   try {
     payload = schema.parse(await request.json());

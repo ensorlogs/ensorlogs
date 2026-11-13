@@ -161,7 +161,11 @@
     "sending": "Transmitting…",
     "success": "Message received. I reply within 48h.",
     "error": "Something failed while sending. Try again or reach me elsewhere.",
-    "required": "Required field"
+    "required": "Required field",
+    "message_hint": "Tell me what you need and how I can help…",
+    "attach": "Attach an image (optional)",
+    "attach_btn": "Attach",
+    "attach_hint": "A screenshot, photo of the space or reference"
   },
   "projects": {
     "kicker": "> ls ~/projects",

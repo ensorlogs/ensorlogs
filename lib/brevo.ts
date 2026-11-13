@@ -10,6 +10,7 @@ type ContactPayload = {
   phone?: string;
   type: string;
   message: string;
+  attachment?: { name: string; content: string };
 };
 
 async function brevoFetch(path: string, init: RequestInit) {
@@ -37,6 +38,7 @@ export async function sendContactEmail(payload: ContactPayload) {
       to: [{ email: to }],
       subject: `[ensorlogs] ${payload.type} — ${payload.name}`,
       textContent: `Tipo: ${payload.type}\nNombre: ${payload.name}\nEmail: ${payload.email}\nTeléfono/WhatsApp: ${payload.phone ?? "—"}\n\n${payload.message}`,
+      ...(payload.attachment ? { attachment: [payload.attachment] } : {}),
     }),
   });
 

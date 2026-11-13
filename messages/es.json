@@ -161,7 +161,11 @@
     "sending": "Transmitiendo…",
     "success": "Mensaje recibido. Te respondo en menos de 48h.",
     "error": "Algo falló al enviar. Inténtalo de nuevo o escríbeme por otra vía.",
-    "required": "Campo requerido"
+    "required": "Campo requerido",
+    "message_hint": "Cuéntame qué necesitas y cómo puedo ayudarte…",
+    "attach": "Adjuntar imagen (opcional)",
+    "attach_btn": "Adjuntar",
+    "attach_hint": "Una captura, foto del espacio o referencia"
   },
   "projects": {
     "kicker": "> ls ~/proyectos",
