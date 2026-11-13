@@ -25,6 +25,14 @@ const STACKS: Partial<Record<HotspotId, { icon: string; name: string }[]>> = {
     { icon: "cursor", name: "Cursor" },
     { icon: "wordpress", name: "WordPress" },
   ],
+  iot: [
+    { icon: "homeassistant", name: "Home Assistant" },
+    { icon: "homey", name: "Homey" },
+    { icon: "zigbee", name: "Zigbee" },
+    { icon: "matter", name: "Matter" },
+    { icon: "apple", name: "Apple Home" },
+    { icon: "googleassistant", name: "Google Assistant" },
+  ],
 };
 
 export default function HeroSection({ logs }: { logs: Log[] }) {
