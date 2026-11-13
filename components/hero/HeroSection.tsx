@@ -10,6 +10,23 @@ import NewsletterForm from "@/components/newsletter/NewsletterForm";
 import type { Log } from "@/lib/types";
 import { Link } from "@/i18n/navigation";
 
+const STACKS: Partial<Record<HotspotId, { icon: string; name: string }[]>> = {
+  server: [
+    { icon: "ubuntu", name: "Ubuntu" },
+    { icon: "docker", name: "Docker" },
+    { icon: "homeassistant", name: "Home Assistant" },
+    { icon: "truenas", name: "TrueNAS" },
+    { icon: "nginx", name: "Nginx" },
+  ],
+  dev: [
+    { icon: "nodedotjs", name: "Node.js" },
+    { icon: "python", name: "Python" },
+    { icon: "devin", name: "Devin AI" },
+    { icon: "cursor", name: "Cursor" },
+    { icon: "wordpress", name: "WordPress" },
+  ],
+};
+
 export default function HeroSection({ logs }: { logs: Log[] }) {
   const t = useTranslations();
   const locale = useLocale();
@@ -149,6 +166,24 @@ export default function HeroSection({ logs }: { logs: Log[] }) {
                   )}
                 </p>
               )
+            )}
+            {active && STACKS[active] && (
+              <div className="mt-5 flex flex-wrap gap-2">
+                {STACKS[active]!.map((s) => (
+                  <span
+                    key={s.name}
+                    className="pixel-border bg-ink-2 flex items-center gap-2 px-2.5 py-1.5"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/stack/${s.icon}.svg`}
+                      alt=""
+                      className="h-4 w-4"
+                    />
+                    <span className="font-term text-sm text-fg">{s.name}</span>
+                  </span>
+                ))}
+              </div>
             )}
             {hasCta && (
               <button
