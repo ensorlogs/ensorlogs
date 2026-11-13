@@ -26,6 +26,63 @@
   --animate-led: led 1.6s steps(2, start) infinite;
   --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
   --animate-scanline: scanline 9s linear infinite;
+  --animate-room-sway: room-sway 6s ease-in-out infinite;
+  --animate-room-bob: room-bob 3.2s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 4.2s ease-in-out infinite;
+  --animate-glow-pulse-slow: glow-pulse 7.5s ease-in-out infinite;
+  --animate-glow-flicker: glow-flicker 2.8s linear infinite;
+}
+
+@keyframes room-sway {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(1.5px) rotate(0.5deg);
+  }
+}
+
+@keyframes room-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes glow-flicker {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  12% {
+    opacity: 0.4;
+  }
+  46% {
+    opacity: 0.85;
+  }
+  52% {
+    opacity: 0.5;
+  }
+  78% {
+    opacity: 0.95;
+  }
 }
 
 @keyframes blink {

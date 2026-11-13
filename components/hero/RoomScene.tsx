@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { DESKTOP_ZONES, MOBILE_ZONES, type Zone } from "./room-zones";
+import RoomLife from "./RoomLife";
 import type { HotspotId } from "./hotspots";
 import {
   playWoof,
@@ -169,6 +170,7 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
         />
         {renderZones(DESKTOP_ZONES, "d")}
         <Markers zones={DESKTOP_ZONES} />
+        <RoomLife image="/room-desktop-4x.jpg" variant="desktop" />
       </div>
 
       {/* mobile scene — portrait-ish viewports */}
@@ -183,6 +185,7 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
         />
         {renderZones(MOBILE_ZONES, "m")}
         <Markers zones={MOBILE_ZONES} />
+        <RoomLife image="/room-mobile-4x.jpg" variant="mobile" />
       </div>
     </div>
   );
