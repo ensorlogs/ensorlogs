@@ -165,7 +165,8 @@
     "message_hint": "Cuéntame qué necesitas y cómo puedo ayudarte…",
     "attach": "Adjuntar imagen (opcional)",
     "attach_btn": "Adjuntar",
-    "attach_hint": "Una captura, foto del espacio o referencia"
+    "attach_hint": "Una captura, foto del espacio o referencia",
+    "captcha": "Verificación humana"
   },
   "projects": {
     "kicker": "> ls ~/proyectos",

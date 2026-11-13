@@ -20,6 +20,9 @@ const schema = z.object({
   message: z.string().trim().min(1).max(5000),
   website: z.string().optional(), // honeypot
   t0: z.string().optional(), // time-trap
+  ca: z.coerce.number().int().min(0).max(50).optional(),
+  cb: z.coerce.number().int().min(0).max(50).optional(),
+  captcha: z.coerce.number().int().optional(),
   "cf-turnstile-response": z.string().optional(),
 });
 
@@ -90,6 +93,15 @@ export async function POST(request: Request) {
   const t0 = Number(payload.t0);
   if (!Number.isFinite(t0) || Date.now() - t0 < 3000) {
     return NextResponse.json({ ok: true });
+  }
+
+  // math captcha — operands ship with the form, server re-checks the sum
+  if (
+    payload.ca === undefined ||
+    payload.cb === undefined ||
+    payload.captcha !== payload.ca + payload.cb
+  ) {
+    return NextResponse.json({ ok: false, error: "captcha" }, { status: 400 });
   }
 
   if (!(await verifyTurnstile(payload["cf-turnstile-response"] ?? "", ip))) {

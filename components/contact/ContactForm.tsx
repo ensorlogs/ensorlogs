@@ -23,6 +23,11 @@ export default function ContactForm() {
   const [fileName, setFileName] = useState<string | null>(null);
   // render timestamp for the time-trap (bots submit instantly)
   const [t0] = useState(() => Date.now().toString());
+  // mini captcha — server validates a + b === answer
+  const [cap] = useState(() => ({
+    a: 2 + Math.floor(Math.random() * 8),
+    b: 2 + Math.floor(Math.random() * 8),
+  }));
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -134,6 +139,26 @@ export default function ContactForm() {
         aria-hidden="true"
       />
       <input name="t0" type="hidden" value={t0} />
+      <input name="ca" type="hidden" value={cap.a} />
+      <input name="cb" type="hidden" value={cap.b} />
+      <label className="font-term block text-lg text-dim sm:col-span-2">
+        {t("captcha")} *
+        <span className="border-line bg-ink-2 mt-1 flex items-center gap-3 border-2 px-3 py-2">
+          <span className="font-pixel whitespace-nowrap text-[0.55rem] text-phosphor">
+            {cap.a} + {cap.b} = ?
+          </span>
+          <input
+            name="captcha"
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            required
+            autoComplete="off"
+            placeholder="?"
+            className="font-term w-16 border-2 border-line bg-ink px-2 py-1 text-center text-lg text-fg outline-none focus:border-amber"
+          />
+        </span>
+      </label>
       {TURNSTILE_SITE_KEY && (
         <>
           <Script
