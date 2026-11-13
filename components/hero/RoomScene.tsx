@@ -134,6 +134,8 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
   const [activeZone, setActiveZone] = useState<string | null>(null);
   // viewport shape: null = SSR/unknown (both videos allowed), true = wide
   const [wide, setWide] = useState<boolean | null>(null);
+  // ambient video plays once on load, then the static art takes over
+  const [videoDone, setVideoDone] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(min-aspect-ratio: 4/3)");
     const update = () => setWide(mq.matches);
@@ -176,16 +178,17 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           unoptimized
           className="object-cover"
         />
-        {/* ambient video loop over the still image — object-fill keeps the
-            %-based hotspot zones aligned; hidden for reduced-motion users.
-            Only mounted on wide viewports so mobile never downloads it */}
-        {wide === true && (
+        {/* ambient video plays once over the still image, then unmounts —
+            the last frame ≈ the artwork so the handoff is invisible.
+            object-fill keeps %-based hotspot zones aligned; hidden for
+            reduced-motion users. Only mounted on wide viewports */}
+        {wide === true && !videoDone && (
           <video
             autoPlay
             muted
-            loop
             playsInline
             disablePictureInPicture
+            onEnded={() => setVideoDone(true)}
             className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
           >
             <source src="/room-loop.mp4" type="video/mp4" />
@@ -205,13 +208,13 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           unoptimized
           className="object-cover"
         />
-        {wide === false && (
+        {wide === false && !videoDone && (
           <video
             autoPlay
             muted
-            loop
             playsInline
             disablePictureInPicture
+            onEnded={() => setVideoDone(true)}
             className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
           >
             <source src="/room-loop-mobile.mp4" type="video/mp4" />
