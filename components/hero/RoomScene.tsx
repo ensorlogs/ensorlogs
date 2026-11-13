@@ -167,6 +167,17 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           unoptimized
           className="object-cover"
         />
+        {/* ambient video loop over the still image — object-fill keeps the
+            %-based hotspot zones aligned; hidden for reduced-motion users */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
+        >
+          <source src="/room-loop.mp4" type="video/mp4" />
+        </video>
         {renderZones(DESKTOP_ZONES, "d")}
         <Markers zones={DESKTOP_ZONES} />
       </div>
@@ -181,6 +192,15 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           unoptimized
           className="object-cover"
         />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
+        >
+          <source src="/room-loop-mobile.mp4" type="video/mp4" />
+        </video>
         {renderZones(MOBILE_ZONES, "m")}
         <Markers zones={MOBILE_ZONES} />
       </div>
