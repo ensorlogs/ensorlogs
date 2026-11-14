@@ -134,8 +134,17 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
   const [activeZone, setActiveZone] = useState<string | null>(null);
   // viewport shape: null = SSR/unknown (both videos allowed), true = wide
   const [wide, setWide] = useState<boolean | null>(null);
-  // ambient video plays once on load, then the static art takes over
-  const [videoDone, setVideoDone] = useState(false);
+  // ambient video plays once on load, then the static art takes over;
+  // a localStorage flag keeps it from replaying on later visits
+  const [videoDone, setVideoDone] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      Boolean(localStorage.getItem("ensor:hero-seen"))
+  );
+  const markVideoDone = () => {
+    localStorage.setItem("ensor:hero-seen", "1");
+    setVideoDone(true);
+  };
   useEffect(() => {
     const mq = window.matchMedia("(min-aspect-ratio: 4/3)");
     const update = () => setWide(mq.matches);
@@ -188,7 +197,8 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
             muted
             playsInline
             disablePictureInPicture
-            onEnded={() => setVideoDone(true)}
+            onEnded={markVideoDone}
+            onError={markVideoDone}
             className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
           >
             <source src="/room-loop.mp4" type="video/mp4" />
@@ -214,7 +224,8 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
             muted
             playsInline
             disablePictureInPicture
-            onEnded={() => setVideoDone(true)}
+            onEnded={markVideoDone}
+            onError={markVideoDone}
             className="absolute inset-0 h-full w-full object-fill motion-reduce:hidden"
           >
             <source src="/room-loop-mobile.mp4" type="video/mp4" />
