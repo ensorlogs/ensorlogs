@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import Header from "@/components/site/Header";
 import Footer from "@/components/site/Footer";
 import SiteLoader from "@/components/site/SiteLoader";
+import ChatWidget from "@/components/site/ChatWidget";
 import "../../globals.css";
 
 const pressStart = Press_Start_2P({
@@ -126,7 +127,7 @@ export default async function LocaleLayout({
                     "https://www.instagram.com/ensorlogs/",
                     "https://www.youtube.com/@ensorlogs",
                     "https://www.tiktok.com/@ensorlogs",
-                    "https://linkedin.com/in/ensorsanchez",
+                    "https://linkedin.com/in/ensorlogs",
                   ],
                 },
                 {
@@ -171,6 +172,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <ChatWidget />
         </NextIntlClientProvider>
       </body>
     </html>

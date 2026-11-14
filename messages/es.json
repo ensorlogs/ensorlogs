@@ -254,5 +254,19 @@
     "edu_heading": "// FORMACIÓN",
     "cta_text": "¿Quieres trabajar conmigo o que dé un taller en tu espacio?",
     "cta_button": "Hablemos →"
+  },
+  "chat": {
+    "open": "CHAT",
+    "close": "Cerrar chat",
+    "online": "EN LÍNEA",
+    "welcome": "> ENSOR.AI iniciado. Soy el asistente de Ensor — pregúntame por sus servicios, experiencia o proyectos. Para presupuestos te derivo al formulario directo.",
+    "placeholder": "Pregúntale algo a Ensor…",
+    "typing": "procesando…",
+    "error": "Se me cruzó un cable 😅 — intenta de nuevo.",
+    "lead_cta": "SOLICITAR SERVICIO",
+    "lead_title": "> NUEVO LEAD",
+    "lead_note": "Ensor te contacta directo por WhatsApp o email.",
+    "lead_send": "ENVIAR →",
+    "lead_ok": "✅ Datos recibidos. Ensor te escribirá por WhatsApp o email — suele responder en menos de 48h."
   }
 }

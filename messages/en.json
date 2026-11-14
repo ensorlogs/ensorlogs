@@ -254,5 +254,19 @@
     "edu_heading": "// EDUCATION",
     "cta_text": "Want to work with me or have me run a workshop at your venue?",
     "cta_button": "Let's talk →"
+  },
+  "chat": {
+    "open": "CHAT",
+    "close": "Close chat",
+    "online": "ONLINE",
+    "welcome": "> ENSOR.AI initialized. I'm Ensor's assistant — ask me about his services, experience or projects. For quotes I'll point you to his contact form.",
+    "placeholder": "Ask Ensor something…",
+    "typing": "processing…",
+    "error": "My wires got crossed 😅 — try again.",
+    "lead_cta": "REQUEST SERVICE",
+    "lead_title": "> NEW LEAD",
+    "lead_note": "Ensor will reach you directly on WhatsApp or email.",
+    "lead_send": "SEND →",
+    "lead_ok": "✅ Got it. Ensor will write you on WhatsApp or email — usually replies within 48h."
   }
 }
