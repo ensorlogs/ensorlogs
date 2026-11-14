@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 type Msg = { role: "user" | "assistant"; content: string };
 
@@ -12,6 +14,13 @@ const SERVICES = [
   "domotica",
   "camaras",
   "marketing",
+] as const;
+
+const QUICK_LINKS = [
+  { key: "services", href: "/" },
+  { key: "experience", href: "/experiencia" },
+  { key: "projects", href: "/proyectos" },
+  { key: "logs", href: "/logs" },
 ] as const;
 
 export default function ChatWidget() {
@@ -100,9 +109,31 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t("close") : t("open")}
-        className="pixel-border font-pixel fixed bottom-4 right-4 z-50 bg-ink/90 px-3 py-2.5 text-[0.6rem] text-amber backdrop-blur-sm transition-colors hover:bg-panel"
+        className="pixel-border font-pixel fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-ink/90 py-1.5 pl-1.5 pr-3 text-[0.6rem] text-amber backdrop-blur-sm transition-colors hover:bg-panel"
       >
-        {open ? "×" : `💬 ${t("open")}`}
+        {open ? (
+          <span className="px-2 py-1.5">×</span>
+        ) : (
+          <>
+            <span className="relative block h-8 w-8 overflow-hidden">
+              <Image
+                src="/ensor-avatar.png"
+                alt=""
+                fill
+                sizes="32px"
+                className="object-cover"
+                unoptimized
+              />
+            </span>
+            <span className="flex flex-col items-start gap-1">
+              <span>{t("open")}</span>
+              <span className="flex items-center gap-1 text-[0.45rem] text-phosphor">
+                <span className="animate-blink inline-block h-1.5 w-1.5 bg-phosphor" />
+                {t("online")}
+              </span>
+            </span>
+          </>
+        )}
       </button>
 
       {open && (
@@ -114,6 +145,20 @@ export default function ChatWidget() {
               {t("online")}
             </span>
           </div>
+
+          {!showLead && (
+            <div className="border-line flex flex-wrap gap-1.5 border-b-2 px-2 py-2">
+              {QUICK_LINKS.map((l) => (
+                <Link
+                  key={l.key}
+                  href={l.href}
+                  className="font-term border-line bg-ink-2 text-dim hover:border-amber hover:text-amber border px-2 py-0.5 text-sm transition-colors"
+                >
+                  {t(`quick.${l.key}`)}
+                </Link>
+              ))}
+            </div>
+          )}
 
           {showLead ? (
             <form

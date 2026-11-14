@@ -256,10 +256,10 @@
     "cta_button": "Hablemos →"
   },
   "chat": {
-    "open": "CHAT",
+    "open": "CONVERSA CONMIGO",
     "close": "Cerrar chat",
     "online": "EN LÍNEA",
-    "welcome": "> ENSOR.AI iniciado. Soy el asistente de Ensor — pregúntame por sus servicios, experiencia o proyectos. Para presupuestos te derivo al formulario directo.",
+    "welcome": "> ENSOR.AI iniciado. Hola — soy Ensor en modo IA. Pregúntame por mis servicios, experiencia o proyectos… o si vienes a hablar de Warzone o Harry Potter, también cae. Para presupuestos usa el botón de abajo.",
     "placeholder": "Pregúntale algo a Ensor…",
     "typing": "procesando…",
     "error": "Se me cruzó un cable 😅 — intenta de nuevo.",
@@ -267,6 +267,12 @@
     "lead_title": "> NUEVO LEAD",
     "lead_note": "Ensor te contacta directo por WhatsApp o email.",
     "lead_send": "ENVIAR →",
-    "lead_ok": "✅ Datos recibidos. Ensor te escribirá por WhatsApp o email — suele responder en menos de 48h."
+    "lead_ok": "✅ Datos recibidos. Te escribiré por WhatsApp o email — suelo responder en menos de 48h.",
+    "quick": {
+      "services": "Mis Servicios",
+      "experience": "Mi Experiencia",
+      "projects": "Proyectos",
+      "logs": "Logs"
+    }
   }
 }

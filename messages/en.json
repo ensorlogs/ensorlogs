@@ -256,10 +256,10 @@
     "cta_button": "Let's talk →"
   },
   "chat": {
-    "open": "CHAT",
+    "open": "TALK TO ME",
     "close": "Close chat",
     "online": "ONLINE",
-    "welcome": "> ENSOR.AI initialized. I'm Ensor's assistant — ask me about his services, experience or projects. For quotes I'll point you to his contact form.",
+    "welcome": "> ENSOR.AI online. Hey — I'm Ensor, AI mode. Ask me about my services, experience or projects… or if you came to talk Warzone or Harry Potter, that works too. For quotes hit the button below.",
     "placeholder": "Ask Ensor something…",
     "typing": "processing…",
     "error": "My wires got crossed 😅 — try again.",
@@ -267,6 +267,12 @@
     "lead_title": "> NEW LEAD",
     "lead_note": "Ensor will reach you directly on WhatsApp or email.",
     "lead_send": "SEND →",
-    "lead_ok": "✅ Got it. Ensor will write you on WhatsApp or email — usually replies within 48h."
+    "lead_ok": "✅ Got it. I'll write you on WhatsApp or email — usually within 48h.",
+    "quick": {
+      "services": "My Services",
+      "experience": "My Experience",
+      "projects": "Projects",
+      "logs": "Logs"
+    }
   }
 }
