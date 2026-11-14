@@ -273,6 +273,18 @@ export const education: Education[] = [
     },
   },
   {
+    school: "Davante — España",
+    title: {
+      es: "Curso de Domótica e IoT",
+      en: "Domotics & IoT course",
+    },
+    period: "1000 horas — Semipresencial",
+    desc: {
+      es: "Formación en sistemas domóticos: instalación, configuración y automatización de espacios. 1000 horas, modalidad semipresencial en España.",
+      en: "Training in domotic systems: installation, configuration and space automation. 1000 hours, blended format in Spain.",
+    },
+  },
+  {
     school: "DataCamp",
     logo: "/experience/logos/datacamp.svg",
     title: {
