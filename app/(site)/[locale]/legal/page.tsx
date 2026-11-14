@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import Breadcrumbs from "@/components/site/Breadcrumbs";
 
 const SECTIONS = ["aviso", "privacidad", "cookies", "accesibilidad"] as const;
 
@@ -30,7 +31,8 @@ function LegalView() {
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 pt-20">
-      <Link href="/" className="font-term text-lg text-dim hover:text-amber">
+      <Breadcrumbs items={[{ label: "legal" }]} />
+      <Link href="/" className="font-term mt-2 inline-block text-lg text-dim hover:text-amber">
         {t("back")}
       </Link>
       <h1 className="font-pixel mt-4 text-sm text-amber sm:text-base">

@@ -6,7 +6,7 @@ import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { getAllSlugs, getLogBySlug } from "@/lib/data";
 import type { Locale } from "@/lib/types";
-import { Link } from "@/i18n/navigation";
+import Breadcrumbs from "@/components/site/Breadcrumbs";
 
 export async function generateStaticParams() {
   const slugs = await getAllSlugs();
@@ -56,9 +56,9 @@ function LogView({
 
   return (
     <article className="mx-auto w-full max-w-5xl px-4 pt-20">
-      <Link href="/logs" className="font-term text-lg text-dim hover:text-amber">
-        {t("back")}
-      </Link>
+      <Breadcrumbs
+        items={[{ label: "logs", href: "/logs" }, { label: log.slug }]}
+      />
 
       <header className="pixel-border mt-4 bg-panel p-5">
         <p className="font-pixel text-[0.5rem] text-phosphor">

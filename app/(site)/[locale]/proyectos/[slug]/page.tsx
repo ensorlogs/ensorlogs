@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/data";
 import type { Project } from "@/data/projects";
 import type { Locale } from "@/lib/types";
+import Breadcrumbs from "@/components/site/Breadcrumbs";
 
 export const revalidate = 60;
 
@@ -54,12 +55,12 @@ function ProjectView({
 
   return (
     <article className="mx-auto w-full max-w-3xl px-4 pb-16 pt-20">
-      <Link
-        href="/proyectos"
-        className="font-term text-lg text-dim hover:text-amber"
-      >
-        {t("back")}
-      </Link>
+      <Breadcrumbs
+        items={[
+          { label: "proyectos", href: "/proyectos" },
+          { label: project.slug },
+        ]}
+      />
 
       <div className="pixel-border mt-4 overflow-hidden bg-panel/90">
         <div className="relative aspect-video w-full">

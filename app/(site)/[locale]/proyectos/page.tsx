@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { getProjects } from "@/lib/data";
 import type { Project } from "@/data/projects";
 import type { Locale } from "@/lib/types";
+import Breadcrumbs from "@/components/site/Breadcrumbs";
 
 export async function generateMetadata({
   params,
@@ -36,7 +37,8 @@ function ProjectsView({ locale, projects }: { locale: Locale; projects: Project[
 
   return (
     <section className="mx-auto w-full max-w-6xl px-4 pb-16 pt-20">
-      <p className="font-term text-dim">{t("kicker")}</p>
+      <Breadcrumbs items={[{ label: "proyectos" }]} />
+      <p className="font-term mt-2 text-dim">{t("kicker")}</p>
       <h1 className="font-pixel mt-2 text-sm text-amber sm:text-base">
         {t("title")}
       </h1>

@@ -14,6 +14,7 @@ const MENU_ITEMS = [
   { key: "services", zone: "dev" },
   { key: "logs", zone: "logs" },
   { key: "projects", href: "/proyectos" },
+  { key: "experience", href: "/experiencia" },
   { key: "contact", zone: "contact" },
   { key: "newsletter", zone: "newsletter" },
 ] as const;

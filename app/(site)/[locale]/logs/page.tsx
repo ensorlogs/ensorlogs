@@ -5,6 +5,7 @@ import { getLogs } from "@/lib/data";
 import type { Locale } from "@/lib/types";
 import LogFeed from "@/components/logs/LogFeed";
 import LogExplorer from "@/components/logs/LogExplorer";
+import Breadcrumbs from "@/components/site/Breadcrumbs";
 
 export async function generateMetadata({
   params,
@@ -37,7 +38,8 @@ function LogsView({
 
   return (
     <section className="mx-auto w-full max-w-5xl px-4 pt-20">
-      <p className="font-term text-dim">{t("kicker")}</p>
+      <Breadcrumbs items={[{ label: "logs" }]} />
+      <p className="font-term mt-2 text-dim">{t("kicker")}</p>
       <h1 className="font-pixel mt-2 text-sm text-amber sm:text-base">
         {t("title")}
       </h1>

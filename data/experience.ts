@@ -1,5 +1,6 @@
 export type Job = {
   company: string;
+  logo?: string;
   role: { es: string; en: string };
   period: string;
   place: { es: string; en: string };
@@ -9,11 +10,13 @@ export type Job = {
 
 export type EventItem = {
   name: string;
+  img?: string;
   desc: { es: string; en: string };
 };
 
 export type Education = {
   school: string;
+  logo?: string;
   title: { es: string; en: string };
   period: string;
   desc: { es: string; en: string };
@@ -23,6 +26,7 @@ export type Education = {
 export const jobs: Job[] = [
   {
     company: "APYCA Developers",
+    logo: "/experience/logos/apycalogo.png",
     role: { es: "Operaciones IT y PropTech", en: "IT Operations & PropTech" },
     period: "2022 — Actualidad",
     place: { es: "Punta Cana", en: "Punta Cana" },
@@ -34,6 +38,7 @@ export const jobs: Job[] = [
   },
   {
     company: "Grupo Snap Publicidad",
+    logo: "/experience/logos/snap.png",
     role: {
       es: "Tecnología y Operaciones Digitales",
       en: "Technology & Digital Operations",
@@ -48,6 +53,7 @@ export const jobs: Job[] = [
   },
   {
     company: "Downtown Punta Cana",
+    logo: "/experience/logos/DTPClogo.png",
     role: {
       es: "Administrador de Sistemas y Operaciones IT",
       en: "Systems Administrator & IT Operations",
@@ -62,6 +68,7 @@ export const jobs: Job[] = [
   },
   {
     company: "I24 web",
+    logo: "/experience/logos/i24weblogo.jpg",
     role: {
       es: "Soporte y desarrollador WordPress · Ads",
       en: "Support & WordPress developer · Ads",
@@ -76,6 +83,7 @@ export const jobs: Job[] = [
   },
   {
     company: "PDVSA",
+    logo: "/experience/logos/pdvsalogo.png",
     role: { es: "Soporte IT", en: "IT Support" },
     period: "2012 — 2014",
     place: { es: "Venezuela", en: "Venezuela" },
@@ -89,6 +97,7 @@ export const jobs: Job[] = [
 export const events: EventItem[] = [
   {
     name: "Ponencia Ubuntu Venezuela",
+    img: "/experience/ubuntu-ve.jpg",
     desc: {
       es: "Charla ante estudiantes sobre Ubuntu y software libre representando a Ubuntu-ve: filosofía del proyecto, Linux cotidiano y por qué importa el software libre en educación y trabajo.",
       en: "Talk for students about Ubuntu and free software representing Ubuntu-ve: project philosophy, everyday Linux and why free software matters in education and work.",
@@ -96,6 +105,7 @@ export const events: EventItem[] = [
   },
   {
     name: "LibreOffice Comunidad Venezuela",
+    img: "/experience/libreoffice.jpg",
     desc: {
       es: "Ponencia en encuentro regional: suite ofimática libre, difusión del Día del Documento Libre y voluntariado alrededor del software libre.",
       en: "Talk at a regional meetup: the free office suite, Document Freedom Day outreach and volunteering around free software.",
@@ -103,6 +113,7 @@ export const events: EventItem[] = [
   },
   {
     name: "FLISOL",
+    img: "/experience/flisol.jpg",
     desc: {
       es: "Festival Latinoamericano de Instalación de Software Libre: difusión y talleres abiertos al público.",
       en: "Latin American Free Software Installation Festival: outreach and open workshops for the public.",
@@ -110,13 +121,15 @@ export const events: EventItem[] = [
   },
   {
     name: "Software Freedom Day",
+    img: "/experience/sfd.jpg",
     desc: {
       es: "Jornada global de difusión del software libre: mesa de instalación y acompañamiento a nuevos usuarios junto a Ubuntu Venezuela y LibreOffice.",
       en: "Global free-software outreach day: install booth and onboarding for new users alongside Ubuntu Venezuela and LibreOffice.",
     },
   },
   {
-    name: "WordCamp Madrid",
+    name: "WordCamp Madrid 2026",
+    img: "/experience/wordcamp-madrid.jpg",
     desc: {
       es: "Participación en la WordCamp: charlas, talleres y encuentro con la comunidad WordPress en un fin de semana de aprendizaje y networking.",
       en: "Attended WordCamp Madrid: talks, workshops and meeting the WordPress community over a weekend of learning and networking.",
@@ -124,6 +137,7 @@ export const events: EventItem[] = [
   },
   {
     name: "Taller de WordPress",
+    img: "/experience/taller-wordpress.jpg",
     desc: {
       es: "Sesión práctica en aula: WordPress como herramienta abierta para publicar en la web, acompañando a equipos y estudiantes.",
       en: "Hands-on classroom session: WordPress as an open tool for publishing on the web, guiding teams and students.",
@@ -131,6 +145,7 @@ export const events: EventItem[] = [
   },
   {
     name: "Docencia universitaria — Bases de datos",
+    img: "/experience/docencia-bd.jpg",
     desc: {
       es: "Clases de bases de datos en aula universitaria: docencia presencial, práctica guiada y acompañamiento a estudiantes.",
       en: "University database classes: in-person teaching, guided practice and student mentoring.",
@@ -138,6 +153,7 @@ export const events: EventItem[] = [
   },
   {
     name: "Curso de WordPress",
+    img: "/experience/curso-wordpress.jpg",
     desc: {
       es: "Curso práctico en aula: publicar en la web con WordPress, buenas prácticas y acompañamiento a equipos y estudiantes.",
       en: "Practical classroom course: publishing on the web with WordPress, best practices and guidance for teams and students.",
@@ -145,6 +161,7 @@ export const events: EventItem[] = [
   },
   {
     name: "Curso de Linux",
+    img: "/experience/curso-linux.jpg",
     desc: {
       es: "Curso práctico en aula: administración, terminal y buenas prácticas en entornos Linux.",
       en: "Practical classroom course: administration, terminal and best practices in Linux environments.",
@@ -152,6 +169,7 @@ export const events: EventItem[] = [
   },
   {
     name: "Fedora & Mozilla",
+    img: "/experience/fedora.jpg",
     desc: {
       es: "Participación junto a la comunidad Linux y cultura de contribución upstream.",
       en: "Participation alongside the Linux community and upstream contribution culture.",
@@ -159,9 +177,34 @@ export const events: EventItem[] = [
   },
   {
     name: "Ubuntu Loco",
+    img: "/experience/ubuntu-loco.jpg",
     desc: {
       es: "Encuentro local de usuarios: compartir experiencias y fortalecer la comunidad.",
       en: "Local user meetup: sharing experiences and strengthening the community.",
+    },
+  },
+  {
+    name: "Taller práctico Linux",
+    img: "/experience/taller-linux.jpg",
+    desc: {
+      es: "Demostraciones en vivo en cursos y jornadas: escritorio, terminal y primeros pasos con Ubuntu.",
+      en: "Live demos in courses and workshops: desktop, terminal and first steps with Ubuntu.",
+    },
+  },
+  {
+    name: "Jornada regional",
+    img: "/experience/jornada-regional.jpg",
+    desc: {
+      es: "Charlas y trabajo en red entre asistentes y proyectos de software libre.",
+      en: "Talks and networking between attendees and free-software projects.",
+    },
+  },
+  {
+    name: "Entre proyectos",
+    img: "/experience/entre-proyectos.jpg",
+    desc: {
+      es: "Intercambio entre comunidades y proyectos abiertos durante el evento.",
+      en: "Exchange between communities and open projects during the event.",
     },
   },
 ];
@@ -181,6 +224,7 @@ export const education: Education[] = [
   },
   {
     school: "CCubik Venezuela",
+    logo: "/experience/logos/ccubik.png",
     title: {
       es: "Cofundador · Instructor y desarrollador",
       en: "Co-founder · Instructor and developer",
@@ -230,6 +274,7 @@ export const education: Education[] = [
   },
   {
     school: "Platzi & EDteam",
+    logo: "/experience/logos/edteam.jpg",
     title: {
       es: "Desarrollo web, DevOps y negocios digitales",
       en: "Web development, DevOps & digital business",
