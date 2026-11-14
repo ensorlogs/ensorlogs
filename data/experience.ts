@@ -288,15 +288,14 @@ export const education: Education[] = [
     school: "DataCamp",
     logo: "/experience/logos/datacamp.svg",
     title: {
-      es: "Data Science, analítica y BI",
-      en: "Data Science, analytics & BI",
+      es: "Certificación Data Analyst Associate",
+      en: "Data Analyst Associate Certification",
     },
     period: "Tracks completados",
     desc: {
-      es: "Formación práctica en ciencia de datos: data4science, Excel, Power BI y Tableau, con ejercicios y proyectos aplicados — incluyendo una app de forecasting de ventas con modelos propios.",
-      en: "Hands-on data science training: data4science, Excel, Power BI and Tableau, with exercises and applied projects — including a sales-forecasting app built on custom models.",
+      es: "Certificado Data Analyst Associate. Formación práctica en ciencia de datos: data4science, Excel, Power BI y Tableau, con ejercicios y proyectos aplicados — incluyendo una app de forecasting de ventas con modelos propios.",
+      en: "Data Analyst Associate certified. Hands-on data science training: data4science, Excel, Power BI and Tableau, with exercises and applied projects — including a sales-forecasting app built on custom models.",
     },
-    url: "https://datacamp.com",
   },
   {
     school: "Platzi & EDteam",
