@@ -14,6 +14,7 @@ import {
   playPlug,
   playBoot,
   playTiger,
+  playLock,
 } from "@/lib/sfx";
 
 type RoomSceneProps = {
@@ -71,6 +72,7 @@ function ZoneButton({
         if (zone.sfx === "plug") playPlug();
         if (zone.sfx === "boot") playBoot();
         if (zone.sfx === "tiger") playTiger();
+        if (zone.sfx === "lock") playLock();
         if (zone.id) onHotspot(zone.id);
         else if (zone.cta) onHotspot(zone.cta);
         else onActivate(active ? null : zoneKey);

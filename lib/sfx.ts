@@ -201,6 +201,46 @@ export function playBoot() {
   }
 }
 
+let lockAudio: HTMLAudioElement | null = null;
+
+/**
+ * Real smart-lock motor + bolt (CC BY 4.0 — Gravity Sound,
+ * "Tight door lock" via Wikimedia Commons) with synth fallback.
+ */
+export function playLock() {
+  try {
+    lockAudio ??= new Audio("/sfx/lock.mp3");
+    lockAudio.currentTime = 0;
+    lockAudio.volume = MASTER * 0.9;
+    const p = lockAudio.play();
+    if (p) p.catch(() => synthLock());
+  } catch {
+    synthLock();
+  }
+}
+
+/** Motorized deadbolt — short motor whir, then two mechanical clacks. */
+function synthLock() {
+  sfxCtx ??= new AudioContext();
+  const now = sfxCtx.currentTime;
+  const motor = sfxCtx.createOscillator();
+  motor.type = "sawtooth";
+  motor.frequency.setValueAtTime(160, now);
+  motor.frequency.exponentialRampToValueAtTime(95, now + 0.28);
+  const lp = sfxCtx.createBiquadFilter();
+  lp.type = "lowpass";
+  lp.frequency.value = 500;
+  const gain = sfxCtx.createGain();
+  gain.gain.setValueAtTime(0.0001, now);
+  gain.gain.exponentialRampToValueAtTime(0.2 * MASTER, now + 0.03);
+  gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+  motor.connect(lp).connect(gain).connect(sfxCtx.destination);
+  motor.start(now);
+  motor.stop(now + 0.32);
+  noiseClick(now + 0.3, 1800, 0.04, 0.5); // bolt out
+  noiseClick(now + 0.45, 900, 0.06, 0.35); // seat thud
+}
+
 let tigerAudio: HTMLAudioElement | null = null;
 
 /** Low tiger growl (CC0) for the El Tigre poster — tiny growl fallback. */

@@ -29,7 +29,8 @@ export type Zone = {
     | "bulb"
     | "plug"
     | "boot"
-    | "tiger";
+    | "tiger"
+    | "lock";
   x: number; // % from left
   y: number; // % from top
   w: number; // % width
@@ -65,7 +66,7 @@ export const DESKTOP_ZONES: Zone[] = [
   { egg: "plugs", cta: "iot", sfx: "plug", x: 0, y: 38, w: 10, h: 9 },
   { egg: "humidity", cta: "iot", x: 2, y: 74, w: 7, h: 19 }, // plant sensor
   { egg: "humidity", cta: "iot", x: 73, y: 30, w: 5, h: 9 }, // RH% display
-  { egg: "lock", cta: "iot", x: 79, y: 37, w: 8, h: 13 },
+  { egg: "lock", cta: "iot", sfx: "lock", x: 79, y: 37, w: 8, h: 13 },
   { egg: "camera", cta: "iot", x: 81, y: 6, w: 7, h: 11 },
 ];
 
@@ -95,6 +96,6 @@ export const MOBILE_ZONES: Zone[] = [
   { egg: "plugs", cta: "iot", sfx: "plug", x: 93, y: 38, w: 7, h: 5 },
   { egg: "humidity", cta: "iot", x: 2, y: 61, w: 10, h: 11 },
   { egg: "humidity", cta: "iot", x: 64, y: 37, w: 7, h: 5 },
-  { egg: "lock", cta: "iot", x: 74, y: 42, w: 7, h: 7 },
+  { egg: "lock", cta: "iot", sfx: "lock", x: 74, y: 42, w: 7, h: 7 },
   { egg: "camera", cta: "iot", x: 74, y: 15, w: 9, h: 6 },
 ];
