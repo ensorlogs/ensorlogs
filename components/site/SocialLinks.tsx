@@ -28,7 +28,7 @@ const SOCIALS = [
 
 export default function SocialLinks() {
   return (
-    <div className="flex items-center gap-3">
+    <div className="border-line flex items-center gap-1.5 border-l-2 pl-3">
       {SOCIALS.map((s) => (
         <a
           key={s.name}

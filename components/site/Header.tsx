@@ -43,7 +43,7 @@ export default function Header() {
           href="/"
           className="pixel-border bg-ink/80 px-3 py-2 backdrop-blur-sm"
         >
-          <span className="font-pixel terminal-glow text-sm text-amber sm:text-base">
+          <span className="font-pixel logo-cycle text-sm sm:text-base">
             ENSOR<span className="text-fg">.LOGS</span>
           </span>
         </Link>

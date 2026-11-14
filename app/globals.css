@@ -143,6 +143,39 @@ body {
   text-shadow: 0 0 6px rgba(255, 176, 0, 0.45);
 }
 
+/* logo color cycle: amber → green → blue → orange → amber */
+@keyframes logo-cycle {
+  0%, 20% {
+    color: var(--color-amber);
+    text-shadow: 0 0 6px rgba(255, 176, 0, 0.5);
+  }
+  25%, 45% {
+    color: var(--color-phosphor);
+    text-shadow: 0 0 6px rgba(77, 255, 136, 0.5);
+  }
+  50%, 70% {
+    color: var(--color-sky);
+    text-shadow: 0 0 6px rgba(94, 200, 255, 0.5);
+  }
+  75%, 95% {
+    color: #ff7a29;
+    text-shadow: 0 0 6px rgba(255, 122, 41, 0.5);
+  }
+  100% {
+    color: var(--color-amber);
+    text-shadow: 0 0 6px rgba(255, 176, 0, 0.5);
+  }
+}
+
+.logo-cycle {
+  animation: logo-cycle 12s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-cycle {
+    animation: none;
+  }
+}
+
 .phosphor-glow {
   text-shadow: 0 0 6px rgba(77, 255, 136, 0.5);
 }
