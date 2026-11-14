@@ -20,10 +20,15 @@ const STACKS: Partial<Record<HotspotId, { icon: string; name: string }[]>> = {
   ],
   dev: [
     { icon: "nodedotjs", name: "Node.js" },
+    { icon: "nextdotjs", name: "Next.js" },
+    { icon: "angular", name: "Angular" },
     { icon: "python", name: "Python" },
     { icon: "devin", name: "Devin AI" },
+    { icon: "claude", name: "Claude Code" },
     { icon: "cursor", name: "Cursor" },
     { icon: "wordpress", name: "WordPress" },
+    { icon: "sql", name: "SQL" },
+    { icon: "powerbi", name: "Power BI" },
   ],
   iot: [
     { icon: "homeassistant", name: "Home Assistant" },
