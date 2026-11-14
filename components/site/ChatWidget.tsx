@@ -109,7 +109,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t("close") : t("open")}
-        className="pixel-border font-pixel fixed bottom-6 right-4 z-50 flex items-center gap-2 bg-ink/90 py-1.5 pl-1.5 pr-3 text-[0.6rem] leading-tight text-amber backdrop-blur-sm transition-colors hover:bg-panel"
+        className="pixel-border font-pixel fixed bottom-16 right-4 z-50 flex items-center gap-2 bg-ink/90 py-1.5 pl-1.5 pr-3 text-[0.6rem] leading-tight text-amber backdrop-blur-sm transition-colors hover:bg-panel"
       >
         {open ? (
           <span className="px-2 py-1.5">×</span>
@@ -141,7 +141,7 @@ export default function ChatWidget() {
       </button>
 
       {open && (
-        <div className="pixel-border fixed bottom-16 right-4 z-50 flex h-[28rem] w-[min(23rem,calc(100vw-2rem))] flex-col bg-ink/95 backdrop-blur-md">
+        <div className="pixel-border fixed bottom-32 right-4 z-50 flex h-[28rem] w-[min(23rem,calc(100vw-2rem))] flex-col bg-ink/95 backdrop-blur-md">
           <div className="font-pixel border-line flex items-center justify-between border-b-2 bg-amber px-3 py-2 text-[0.55rem] text-ink">
             <span>ENSOR.AI</span>
             <span className="flex items-center gap-1.5">
