@@ -12,7 +12,8 @@
     "newsletter": "Boletín",
     "lang": "Idioma",
     "social": "Sígueme",
-    "experience": "Mi Experiencia"
+    "experience": "Mi Experiencia",
+    "breadcrumb_home": "volver al home"
   },
   "hero": {
     "hint_desktop": "Explora la habitación: cada punto brillante abre algo",

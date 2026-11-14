@@ -12,7 +12,8 @@
     "newsletter": "Newsletter",
     "lang": "Language",
     "social": "Follow me",
-    "experience": "My Experience"
+    "experience": "My Experience",
+    "breadcrumb_home": "back to home"
   },
   "hero": {
     "hint_desktop": "Explore the room: every glowing dot opens something",
