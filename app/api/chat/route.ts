@@ -52,6 +52,28 @@ async function askGroq(messages: ChatMsg[]) {
   return data.choices?.[0]?.message?.content as string;
 }
 
+async function askGitHubModels(messages: ChatMsg[]) {
+  const res = await fetch(
+    "https://models.github.ai/inference/chat/completions",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_MODELS_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "openai/gpt-4o-mini",
+        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
+        max_tokens: 300,
+        temperature: 0.7,
+      }),
+    }
+  );
+  if (!res.ok) throw new Error(`ghmodels ${res.status}`);
+  const data = await res.json();
+  return data.choices?.[0]?.message?.content as string;
+}
+
 async function askGemini(messages: ChatMsg[]) {
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
@@ -92,7 +114,9 @@ export async function POST(request: Request) {
 
   try {
     let reply: string;
-    if (process.env.GROQ_API_KEY) {
+    if (process.env.GITHUB_MODELS_TOKEN) {
+      reply = await askGitHubModels(messages);
+    } else if (process.env.GROQ_API_KEY) {
       reply = await askGroq(messages);
     } else if (process.env.GEMINI_API_KEY) {
       reply = await askGemini(messages);
