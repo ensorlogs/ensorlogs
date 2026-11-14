@@ -273,6 +273,8 @@
       "experience": "Mi Experiencia",
       "projects": "Proyectos",
       "logs": "Logs"
-    }
+    },
+    "open_a": "CONVERSA",
+    "open_b": "CONMIGO"
   }
 }

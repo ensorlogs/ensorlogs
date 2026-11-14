@@ -109,7 +109,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? t("close") : t("open")}
-        className="pixel-border font-pixel fixed bottom-4 right-4 z-50 flex items-center gap-2 bg-ink/90 py-1.5 pl-1.5 pr-3 text-[0.6rem] text-amber backdrop-blur-sm transition-colors hover:bg-panel"
+        className="pixel-border font-pixel fixed bottom-6 right-4 z-50 flex items-center gap-2 bg-ink/90 py-1.5 pl-1.5 pr-3 text-[0.6rem] leading-tight text-amber backdrop-blur-sm transition-colors hover:bg-panel"
       >
         {open ? (
           <span className="px-2 py-1.5">×</span>
@@ -126,7 +126,11 @@ export default function ChatWidget() {
               />
             </span>
             <span className="flex flex-col items-start gap-1">
-              <span>{t("open")}</span>
+              <span>
+                {t("open_a")}
+                <br />
+                {t("open_b")}
+              </span>
               <span className="flex items-center gap-1 text-[0.45rem] text-phosphor">
                 <span className="animate-blink inline-block h-1.5 w-1.5 bg-phosphor" />
                 {t("online")}
