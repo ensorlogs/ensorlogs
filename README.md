@@ -14,11 +14,3 @@ Web personal estilo **retro 1-bit / pixel art**: portafolio, bitácora técnica
 - **Brevo** — formulario de contacto (email transaccional + captura de leads)
 - Despliegue objetivo: **Vercel** + dominio `ensorlogs.com`
 
-
-
-
-```bash
-npm run dev     # desarrollo
-npm run build   # build de producción
-npm run lint    # eslint
-```
