@@ -72,6 +72,7 @@ export const DESKTOP_ZONES: Zone[] = [
   { egg: "lock", cta: "iot", sfx: "lock", x: 79, y: 37, w: 8, h: 13 },
   { egg: "camera", cta: "iot", x: 81, y: 6, w: 7, h: 11 },
   { egg: "baul", link: "/proyectos", x: 12, y: 66, w: 19, h: 27 }, // mueble bajo la repisa
+  { egg: "baul", link: "/proyectos", x: 84, y: 64, w: 15, h: 30 }, // mueble bajo la cafetera
 ];
 
 /** Zones for room-mobile.jpg (576×1024). */
@@ -103,4 +104,5 @@ export const MOBILE_ZONES: Zone[] = [
   { egg: "lock", cta: "iot", sfx: "lock", x: 74, y: 42, w: 7, h: 7 },
   { egg: "camera", cta: "iot", x: 74, y: 15, w: 9, h: 6 },
   { egg: "baul", link: "/proyectos", x: 7, y: 51, w: 20, h: 12 }, // mueble bajo la repisa
+  { egg: "baul", link: "/proyectos", x: 79, y: 56, w: 20, h: 17 }, // mueble bajo la cafetera
 ];
