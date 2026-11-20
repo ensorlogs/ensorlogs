@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://ensorlogs.com/room-desktop-4x.jpg" alt="La habitación de Ensor — mi espacio de trabajo" width="100%"/>
+<a href="https://ensorlogs.com"><img src="https://ensorlogs.com/room-desktop-4x.jpg" alt="La habitación de Ensor — mi espacio de trabajo" width="100%"/></a>
 
 # ⚡ ENSOR.LOGS
 
