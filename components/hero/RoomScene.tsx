@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { DESKTOP_ZONES, MOBILE_ZONES, type Zone } from "./room-zones";
 import type { HotspotId } from "./hotspots";
 import {
@@ -39,6 +40,7 @@ function ZoneButton({
   onActivate: (key: string | null) => void;
   onHotspot: (id: HotspotId) => void;
 }) {
+  const router = useRouter();
   const isEgg = Boolean(zone.egg);
 
   // keep the tooltip chip inside the scene: anchor to the nearest side and
@@ -75,6 +77,7 @@ function ZoneButton({
         if (zone.sfx === "lock") playLock();
         if (zone.id) onHotspot(zone.id);
         else if (zone.cta) onHotspot(zone.cta);
+        else if (zone.link) router.push(zone.link);
         else onActivate(active ? null : zoneKey);
       }}
     >
@@ -167,7 +170,7 @@ export default function RoomScene({ onHotspot, labels }: RoomSceneProps) {
           zone={z}
           zoneKey={key}
           label={zoneLabel(z)}
-          ctaHint={z.cta ? t("eggs.cta") : undefined}
+          ctaHint={z.link ? t("eggs.go_projects") : z.cta ? t("eggs.cta") : undefined}
           active={activeZone === key}
           onActivate={setActiveZone}
           onHotspot={onHotspot}

@@ -13,13 +13,16 @@ export type EggId =
   | "plugs"
   | "humidity"
   | "lock"
-  | "camera";
+  | "camera"
+  | "baul";
 
 export type Zone = {
   id?: HotspotId;
   egg?: EggId;
   /** clicking the egg opens this hotspot modal (e.g. domotics → services) */
   cta?: HotspotId;
+  /** clicking navigates to this path (locale-aware) */
+  link?: string;
   /** sound effect to play on click */
   sfx?:
     | "woof"
@@ -68,6 +71,7 @@ export const DESKTOP_ZONES: Zone[] = [
   { egg: "humidity", cta: "iot", x: 73, y: 30, w: 5, h: 9 }, // RH% display
   { egg: "lock", cta: "iot", sfx: "lock", x: 79, y: 37, w: 8, h: 13 },
   { egg: "camera", cta: "iot", x: 81, y: 6, w: 7, h: 11 },
+  { egg: "baul", link: "/proyectos", x: 12, y: 66, w: 19, h: 27 }, // mueble bajo la repisa
 ];
 
 /** Zones for room-mobile.jpg (576×1024). */
@@ -98,4 +102,5 @@ export const MOBILE_ZONES: Zone[] = [
   { egg: "humidity", cta: "iot", x: 64, y: 37, w: 7, h: 5 },
   { egg: "lock", cta: "iot", sfx: "lock", x: 74, y: 42, w: 7, h: 7 },
   { egg: "camera", cta: "iot", x: 74, y: 15, w: 9, h: 6 },
+  { egg: "baul", link: "/proyectos", x: 7, y: 51, w: 20, h: 12 }, // mueble bajo la repisa
 ];

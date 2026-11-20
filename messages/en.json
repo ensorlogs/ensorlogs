@@ -121,7 +121,9 @@
     "humidity": "Moisture sensor — the plant tells me when it's thirsty.",
     "lock": "Smart lock — goodbye keys.",
     "camera": "Detection camera — the house watches itself.",
-    "cta": "Interested? ▸ Contact me"
+    "cta": "Interested? ▸ Contact me",
+    "baul": "The project chest 📦",
+    "go_projects": "See my projects →"
   },
   "logs": {
     "kicker": "> tail -f /var/log/ensor",

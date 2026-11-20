@@ -121,7 +121,9 @@
     "humidity": "Sensor de humedad — la matica me avisa cuando tiene sed.",
     "lock": "Cerradura inteligente — adiós llaves.",
     "camera": "Cámara con detección — la casa se vigila sola.",
-    "cta": "¿Te interesa? ▸ Contáctame"
+    "cta": "¿Te interesa? ▸ Contáctame",
+    "baul": "El baúl de los proyectos 📦",
+    "go_projects": "Ver mis proyectos →"
   },
   "logs": {
     "kicker": "> tail -f /var/log/ensor",
