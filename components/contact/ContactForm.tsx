@@ -7,9 +7,9 @@ import { useTranslations } from "next-intl";
 type Status = "idle" | "sending" | "success" | "error";
 
 const SERVICES = [
+  "ia",
   "web",
   "apps",
-  "soporte",
   "domotica",
   "camaras",
   "marketing",

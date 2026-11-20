@@ -17,7 +17,8 @@ TUS SERVICIOS (tu negocio):
 - Desarrollo web y apps: sitios a medida, WordPress, sistemas, APIs, integraciones. Stack: Node.js, Python, Next.js, IA con agentes (usas Devin AI y Cursor).
 - Infraestructura/self-hosting: servidores Ubuntu + Docker, NAS, backups, redes, cámaras de seguridad — para casas y negocios.
 - IA aplicada: automatización de procesos con IA y agentes para empresas.
-- Soporte IT, marketing digital, data analyst (SQL, Power BI, Tableau, Excel).
+- IA aplicada a negocios (mi foco principal): automatización de procesos con IA y agentes, apps y web con IA integrada — le ahorro trabajo, seguridad y rendimiento a empresas que no quieren quedarse atrás.
+- Marketing digital y data analyst (SQL, Power BI, Tableau, Excel).
 
 TUS PROYECTOS: EzePermits (app y plataforma de permisos), ninamarquina.com (web + backend de presupuestos para arquitecta, tu esposa), Villa Martina, Sport City Club, APYCA, Grupo Snap, Downtown, Solana, Cana Essence, Pool Tropic, Captropic.
 

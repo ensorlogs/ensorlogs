@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Ensor.Logs — Domótica, Desarrollo Web e IA desde El Hatillo 🇻🇪 al mundo",
-    "description": "Ing. de Sistemas — Domótica, desarrollo web y apps, IA, soporte IT y redes. Proyectos reales desde El Hatillo al mundo."
+    "title": "Ensor.Logs — IA aplicada a tu negocio: web, apps y automatización 🇻🇪",
+    "description": "Ing. de Sistemas — Implemento IA en tu negocio: apps, web, sistemas, marketing y automatización que te ahorra trabajo, seguridad y rendimiento. De El Hatillo al mundo."
   },
   "nav": {
     "home": "Inicio",
@@ -42,7 +42,7 @@
     "dev": {
       "label": "Estación de trabajo",
       "title": "SERVICES.EXE",
-      "heading": "Desarrollo web · Apps · IA",
+      "heading": "IA · Apps · Desarrollo web",
       "body": "Desde estos monitores salen los proyectos:\n\n• Desarrollo web y aplicaciones a medida\n• Automatización de procesos con IA y agentes\n• Arquitectura de sistemas, APIs e integraciones\n\n¿Necesitas algo así? Puedes solicitar mis servicios.",
       "tags": [
         "web",
@@ -57,7 +57,7 @@
       "label": "El rack",
       "title": "INFRA.SYS",
       "heading": "Servidor & Self-hosting",
-      "body": "El rack corre Ubuntu + Docker: Home Assistant, backups, la red interna y los servicios de esta misma web.\n\nLo mismo lo monto para casas y negocios: servidores locales, NAS, backups automáticos y servicios propios sin suscripciones eternas.",
+      "body": "El rack corre Ubuntu + Docker: Home Assistant, backups, la red interna y los servicios de esta misma web — y además una IA local que uso en mis proyectos.\n\nLo mismo lo monto para casas y negocios: servidores locales, NAS, backups automáticos y servicios propios sin suscripciones eternas.",
       "tags": [
         "home-assistant",
         "ubuntu",
@@ -121,7 +121,7 @@
     "humidity": "Sensor de humedad — la matica me avisa cuando tiene sed.",
     "lock": "Cerradura inteligente — adiós llaves.",
     "camera": "Cámara con detección — la casa se vigila sola.",
-    "cta": "¿Quieres domótica así? ▸ Contrata mis servicios"
+    "cta": "¿Te interesa? ▸ Contáctame"
   },
   "logs": {
     "kicker": "> tail -f /var/log/ensor",
@@ -152,9 +152,9 @@
     "phone": "Teléfono / WhatsApp",
     "type": "¿Qué necesitas?",
     "types": {
+      "ia": "Impulsar mi negocio con IA",
       "web": "Desarrollo Web",
       "apps": "Sistemas / Apps",
-      "soporte": "Soporte Técnico PC",
       "domotica": "Domótica",
       "camaras": "Cámaras / Redes",
       "marketing": "Marketing Digital"

@@ -13,7 +13,7 @@ const schema = z.object({
   email: z.string().trim().email().max(200).optional().or(z.literal("")),
   phone: z.string().trim().max(40).optional(),
   service: z
-    .enum(["web", "apps", "soporte", "domotica", "camaras", "marketing"])
+    .enum(["web", "apps", "ia", "domotica", "camaras", "marketing"])
     .default("web"),
   message: z.string().trim().min(1).max(2000),
   website: z.string().optional(), // honeypot

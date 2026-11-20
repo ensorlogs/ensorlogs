@@ -114,8 +114,8 @@ export default async function LocaleLayout({
                   image: "https://ensorlogs.com/ensor-avatar.png",
                   jobTitle:
                     locale === "en"
-                      ? "Systems Engineer — Domotics, Web Development & AI"
-                      : "Ingeniero de Sistemas — Domótica, Desarrollo Web e IA",
+                      ? "Systems Engineer — AI & Web Development"
+                      : "Ingeniero de Sistemas — IA y Desarrollo Web",
                   address: {
                     "@type": "PostalAddress",
                     addressLocality: "El Hatillo",
@@ -152,12 +152,13 @@ export default async function LocaleLayout({
                     },
                   ],
                   serviceType: [
-                    "Domótica e IoT",
+                    "Inteligencia Artificial aplicada a negocios",
                     "Desarrollo Web",
-                    "Sistemas y Apps",
-                    "Inteligencia Artificial aplicada",
+                    "Apps y sistemas a medida",
+                    "Automatización de procesos con IA",
+                    "Marketing digital",
+                    "Domótica e IoT",
                     "Cámaras y Redes",
-                    "Soporte Técnico",
                     "Marketing Digital",
                   ],
                 },

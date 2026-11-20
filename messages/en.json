@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Ensor.Logs — Domotics, Web Development & AI from El Hatillo 🇻🇪 to the world",
-    "description": "Systems engineer — domotics, web & app development, AI, IT support and networking. Real projects from El Hatillo to the world."
+    "title": "Ensor.Logs — Applied AI for your business: web, apps & automation 🇻🇪",
+    "description": "Systems engineer — I implement AI in your business: apps, web, systems, marketing and automation that saves you work, adds security and performance. From El Hatillo to the world."
   },
   "nav": {
     "home": "Home",
@@ -42,7 +42,7 @@
     "dev": {
       "label": "Workstation",
       "title": "SERVICES.EXE",
-      "heading": "Web dev · Apps · AI",
+      "heading": "AI · Apps · Web Development",
       "body": "Projects ship from these monitors:\n\n• Custom web development and applications\n• Process automation with AI and agents\n• Systems architecture, APIs and integrations\n\nNeed something like this? You can request my services.",
       "tags": [
         "web",
@@ -57,7 +57,7 @@
       "label": "The rack",
       "title": "INFRA.SYS",
       "heading": "Server & Self-hosting",
-      "body": "The rack runs Ubuntu + Docker: Home Assistant, backups, the internal network and the services behind this very website.\n\nI set up the same for homes and businesses: local servers, NAS, automatic backups and owned services — no endless subscriptions.",
+      "body": "The rack runs Ubuntu + Docker: Home Assistant, backups, the internal network and the services behind this very website — plus a local AI I use for my projects.\n\nI set up the same for homes and businesses: local servers, NAS, automatic backups and owned services — no endless subscriptions.",
       "tags": [
         "home-assistant",
         "ubuntu",
@@ -121,7 +121,7 @@
     "humidity": "Moisture sensor — the plant tells me when it's thirsty.",
     "lock": "Smart lock — goodbye keys.",
     "camera": "Detection camera — the house watches itself.",
-    "cta": "Want domotics like this? ▸ Hire my services"
+    "cta": "Interested? ▸ Contact me"
   },
   "logs": {
     "kicker": "> tail -f /var/log/ensor",
@@ -152,9 +152,9 @@
     "phone": "Phone / WhatsApp",
     "type": "What do you need?",
     "types": {
+      "ia": "Boost my business with AI",
       "web": "Web Development",
       "apps": "Systems / Apps",
-      "soporte": "PC Tech Support",
       "domotica": "Domotics",
       "camaras": "Cameras / Networks",
       "marketing": "Digital Marketing"

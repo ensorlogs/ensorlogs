@@ -8,9 +8,9 @@ import { Link } from "@/i18n/navigation";
 type Msg = { role: "user" | "assistant"; content: string };
 
 const SERVICES = [
+  "ia",
   "web",
   "apps",
-  "soporte",
   "domotica",
   "camaras",
   "marketing",
