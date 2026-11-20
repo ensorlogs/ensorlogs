@@ -167,7 +167,46 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "gruposnap-v2",
+    name: "Grupo Snap — Nueva Web + Cotizador B2B",
+    image: "/projects/gruposnap-v2.jpg",
+    images: [
+      "/projects/gruposnap-v2-11.jpg",
+      "/projects/gruposnap-v2-12.jpg",
+      "/projects/gruposnap-v2-13.jpg",
+    ],
+    tag: {
+      es: "E-commerce · cotizador B2B multi-mercado",
+      en: "E-commerce · multi-market B2B quoting",
+    },
+    summary: {
+      es: "Rediseño completo de gruposnap.com para los mercados de RD, Venezuela e internacional: catálogo interactivo con hotspots, cotizador en línea y un admin propio para gestionar cotizaciones, clientes, productos, kits y precios.",
+      en: "Full redesign of gruposnap.com for the DR, Venezuela and international markets: interactive catalog with hotspots, online quoting system and a custom admin to manage quotes, clients, products, kits and pricing.",
+    },
+    stack: ["E-commerce", "Cotizador", "CRM", "Admin Panel", "Database", "Multi-market"],
+    url: "https://gruposnap.com/",
+    detail: {
+      es: {
+        context:
+          "Grupo Snap necesitaba dejar atrás una web de catálogo estático: los clientes pedían precios por WhatsApp y cada cotización se armaba a mano. El reto era vender en tres mercados (RD, Venezuela e internacional) con precios y flujo diferenciados, sin perder la velocidad de respuesta que los caracteriza.",
+        solution:
+          "Nueva plataforma completa: web comercial rediseñada con hero de temporada, catálogo interactivo 2026 con puntos clicables sobre cada producto para ver ficha y añadir a la cotización, un sistema de cotización donde el cliente arma su kit de artículos con cantidades y envía la solicitud, y un backend administrativo con dashboard de embudo (recibida → presupuestada → aprobada → en producción → entregada), gestión de clientes/CRM, productos, usuarios, kits, precios, catálogo y notificaciones — segmentado por mercado (RD / VE / Intl).",
+        results:
+          "Cotizaciones estructuradas que llegan al panel listas para presupuestar — cada solicitud trae artículos y cantidades, con el embudo comercial completo gestionado desde un solo sistema para los tres mercados.",
+      },
+      en: {
+        context:
+          "Grupo Snap needed to move past a static catalog site: clients asked for prices over WhatsApp and every quote was built by hand. The challenge was selling across three markets (DR, Venezuela and international) with differentiated pricing and flow, without losing the response speed they're known for.",
+        solution:
+          "Complete new platform: redesigned commercial site with seasonal hero, 2026 interactive catalog with clickable hotspots on each product to view details and add to the quote, a quoting system where clients build their item kit with quantities and submit the request, and an admin backend with funnel dashboard (received → quoted → approved → in production → delivered), clients/CRM, products, users, kits, pricing, catalog and notifications — segmented by market (DR / VE / Intl).",
+        results:
+          "Structured quotes arriving at the panel ready to be priced — every request includes items and quantities, with the full sales funnel managed from one system across all three markets.",
+      },
+    },
+  },
+  {
     slug: "gruposnap",
+
     name: "Grupo Snap Publicidad",
     image: "/projects/gruposnap.webp",
     tag: {
