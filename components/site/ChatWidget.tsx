@@ -117,7 +117,7 @@ export default function ChatWidget() {
           <>
             <span className="relative block h-8 w-8 overflow-hidden">
               <Image
-                src="/ensor-avatar.png"
+                src="/ensor-avatar.webp"
                 alt=""
                 fill
                 sizes="32px"

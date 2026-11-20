@@ -308,7 +308,7 @@ export const projects: Project[] = [
   {
     slug: "downtown",
     name: "Downtown Punta Cana",
-    image: "/projects/downtown.png",
+    image: "/projects/downtown.webp",
     tag: { es: "Infraestructura IT", en: "IT Infrastructure" },
     summary: {
       es: "Infraestructura híbrida, monitoreo y soporte cercano para el complejo comercial y de entretenimiento: web corporativa, servidores y estabilidad operativa.",
@@ -343,7 +343,7 @@ export const projects: Project[] = [
   {
     slug: "cana-essence",
     name: "Cana Essence",
-    image: "/projects/cana-essence.png",
+    image: "/projects/cana-essence.webp",
     tag: { es: "Desarrollo Web", en: "Web Development" },
     summary: {
       es: "Sitio web comercial para la marca — presencia digital y captación.",
@@ -369,7 +369,7 @@ export const projects: Project[] = [
   {
     slug: "pool-tropic",
     name: "Pool Tropic — Las Iguanas",
-    image: "/projects/pool-tropic.png",
+    image: "/projects/pool-tropic.webp",
     tag: { es: "Desarrollo Web", en: "Web Development" },
     summary: {
       es: "Sitio web para el negocio de piscinas y exteriores.",
@@ -395,7 +395,7 @@ export const projects: Project[] = [
   {
     slug: "captropic",
     name: "CapTropic",
-    image: "/projects/captropic.png",
+    image: "/projects/captropic.webp",
     tag: { es: "Desarrollo Web", en: "Web Development" },
     summary: {
       es: "Sitio web comercial para el proyecto en Cap Cana.",
@@ -454,7 +454,7 @@ export const projects: Project[] = [
   {
     slug: "ezepermits",
     name: "EZEPermits — Florida",
-    image: "/projects/ezepermits.png",
+    image: "/projects/ezepermits.webp",
     tag: { es: "Desarrollo Web", en: "Web Development" },
     summary: {
       es: "Web para el servicio de gestión de permisos en Florida.",

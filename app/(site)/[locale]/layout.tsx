@@ -43,22 +43,36 @@ export async function generateMetadata({
     },
     description,
     keywords: [
-      "domótica Venezuela",
+      "IA para negocios",
+      "inteligencia artificial empresas",
+      "automatización con IA",
       "desarrollo web Venezuela",
+      "desarrollo web República Dominicana",
       "apps Venezuela",
-      "IA aplicada",
+      "sistemas a medida RD",
+      "desarrollo web Punta Cana",
+      "domótica Venezuela",
+      "domótica República Dominicana",
+      "domótica Punta Cana",
       "sistemas El Hatillo",
       "soporte IT Caracas",
-      "cámaras seguridad",
-      "redes hogar",
       "PropTech Punta Cana",
-      "trabajo remoto EE.UU.",
       "automatización hogar",
+      "trabajo remoto EE.UU.",
       "Ensor",
       "ensorlogs",
     ],
     alternates: {
-      languages: { es: "/", en: "/en" },
+      languages: {
+        es: "/",
+        "es-VE": "/",
+        "es-DO": "/",
+        en: "/en",
+        "x-default": "/",
+      },
+    },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
     },
     openGraph: {
       siteName: "Ensor.Logs",
@@ -111,7 +125,7 @@ export default async function LocaleLayout({
                   "@id": "https://ensorlogs.com/#ensor",
                   name: "Ensor",
                   url: "https://ensorlogs.com/",
-                  image: "https://ensorlogs.com/ensor-avatar.png",
+                  image: "https://ensorlogs.com/ensor-avatar.webp",
                   jobTitle:
                     locale === "en"
                       ? "Systems Engineer — AI & Web Development"
@@ -144,6 +158,7 @@ export default async function LocaleLayout({
                   },
                   areaServed: [
                     { "@type": "Country", name: "Venezuela" },
+                    { "@type": "Country", name: "Dominican Republic" },
                     { "@type": "City", name: "Punta Cana" },
                     {
                       "@type": "Country",
@@ -156,10 +171,10 @@ export default async function LocaleLayout({
                     "Desarrollo Web",
                     "Apps y sistemas a medida",
                     "Automatización de procesos con IA",
-                    "Marketing digital",
                     "Domótica e IoT",
                     "Cámaras y Redes",
                     "Marketing Digital",
+                    "Data Analytics",
                   ],
                 },
               ],

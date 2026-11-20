@@ -36,7 +36,7 @@ export default function SiteLoader() {
     >
       <div className="rounded-full border-4 border-line-2 bg-panel p-1.5 shadow-[0_0_40px_rgba(255,176,0,0.15)]">
         <Image
-          src="/ensor-avatar.png"
+          src="/ensor-avatar.webp"
           alt="Ensor"
           width={112}
           height={112}

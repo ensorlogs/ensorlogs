@@ -44,11 +44,25 @@ async function verifyTurnstile(token: string, ip: string) {
   return data.success === true;
 }
 
+const ALLOWED_IMAGE_TYPES = new Set([
+  "image/png",
+  "image/jpeg",
+  "image/webp",
+  "image/gif",
+]);
+const ALLOWED_IMAGE_EXTS = new Set(["png", "jpg", "jpeg", "webp", "gif"]);
+
 async function uploadAttachment(file: File): Promise<string | null> {
-  if (!isSupabaseConfigured()) return null;
+  const ext = file.name.split(".").pop()?.toLowerCase() ?? "";
+  if (
+    !isSupabaseConfigured() ||
+    !ALLOWED_IMAGE_TYPES.has(file.type) ||
+    !ALLOWED_IMAGE_EXTS.has(ext)
+  ) {
+    return null;
+  }
   try {
     const supabase = createServiceClient();
-    const ext = file.name.split(".").pop()?.toLowerCase() ?? "png";
     const path = `leads/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
     const { error } = await supabase.storage
       .from("stories-media")
