@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import AdminShell from "@/components/admin/AdminShell";
 import SupabaseNotice from "@/components/admin/SupabaseNotice";
 import ProjectForm from "@/components/admin/ProjectForm";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/server";
+import { isSupabaseConfigured, requireAdmin } from "@/lib/supabase/server";
 import type { ProjectRow } from "@/lib/types";
 
 export default async function EditProjectPage({
@@ -13,7 +13,7 @@ export default async function EditProjectPage({
   if (!isSupabaseConfigured()) return <SupabaseNotice />;
   const { id } = await params;
 
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   const { data } = await supabase
     .from("projects")
     .select("*")

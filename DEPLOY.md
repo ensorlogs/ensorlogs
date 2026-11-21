@@ -7,8 +7,11 @@ Checklist para conectar los servicios y desplegar. Orden recomendado.
 1. Crea el proyecto en <https://supabase.com> → Project → New.
 2. **SQL Editor** → pega y ejecuta `supabase/migrations/0001_init.sql`
    (crea la tabla `logs` unificada, políticas RLS y el bucket `stories-media`).
-3. **Authentication → Users → Add user** → crea tu usuario admin
-   (email + password; desmarca "auto confirm" si quieres confirmar por correo).
+   Ejecuta después, en orden, `0002_admin_features.sql`, `0003_project_gallery.sql`
+   y `0004_admin_owner_only.sql` (limita las políticas admin al dueño).
+3. Registra tu email de admin (el mismo que pondrás en `ADMIN_EMAIL`):
+   `insert into public.admin_emails (email) values ('tu@email.com');`
+   Solo los emails de `ADMIN_EMAIL` pueden pedir el enlace de acceso a `/admin`.
 4. **Settings → API** → copia:
    - `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
    - `anon public` key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`

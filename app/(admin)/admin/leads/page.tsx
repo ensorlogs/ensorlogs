@@ -1,6 +1,6 @@
 import AdminShell from "@/components/admin/AdminShell";
 import SupabaseNotice from "@/components/admin/SupabaseNotice";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/server";
+import { isSupabaseConfigured, requireAdmin } from "@/lib/supabase/server";
 import { deleteLead, updateLeadStatus } from "../actions";
 import type { ContactRow } from "@/lib/types";
 
@@ -21,7 +21,7 @@ const NEXT_STATUS: Record<ContactRow["status"], ContactRow["status"]> = {
 export default async function LeadsAdminPage() {
   if (!isSupabaseConfigured()) return <SupabaseNotice />;
 
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   const { data } = await supabase
     .from("contacts")
     .select("*")

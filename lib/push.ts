@@ -1,6 +1,7 @@
 import { setVapidDetails, sendNotification } from "web-push";
 import { isSupabaseConfigured } from "@/lib/supabase/client";
 import { createServiceClient } from "@/lib/supabase/admin";
+import { isAllowedPushEndpoint } from "@/lib/push-endpoint";
 
 function isPushConfigured() {
   return Boolean(
@@ -35,6 +36,10 @@ export async function notifySubscribers(payload: {
   const body = JSON.stringify({ ...payload, icon: "/ensor-avatar.png" });
   await Promise.allSettled(
     subs.map(async (sub) => {
+      if (!isAllowedPushEndpoint(sub.endpoint)) {
+        await supabase.from("push_subscriptions").delete().eq("id", sub.id);
+        return;
+      }
       try {
         await sendNotification(
           {
