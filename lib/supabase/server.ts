@@ -1,5 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { isAdminEmail } from "@/lib/admin-emails";
 
 export function isSupabaseConfigured() {
   return Boolean(
@@ -31,4 +33,17 @@ export async function createClient() {
       },
     }
   );
+}
+
+/** Supabase client for the signed-in owner; anyone else is sent to the login. */
+export async function requireAdmin() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user || !isAdminEmail(user.email)) {
+    if (user) await supabase.auth.signOut();
+    redirect("/admin/login");
+  }
+  return supabase;
 }

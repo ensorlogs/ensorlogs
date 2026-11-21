@@ -1,7 +1,7 @@
 import Link from "next/link";
 import AdminShell from "@/components/admin/AdminShell";
 import SupabaseNotice from "@/components/admin/SupabaseNotice";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/server";
+import { isSupabaseConfigured, requireAdmin } from "@/lib/supabase/server";
 import { deleteLog } from "../actions";
 import type { LogRow } from "@/lib/types";
 
@@ -13,7 +13,7 @@ export default async function LogsAdminPage({
   if (!isSupabaseConfigured()) return <SupabaseNotice />;
   const { error } = await searchParams;
 
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   const { data } = await supabase
     .from("logs")
     .select("*")

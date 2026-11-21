@@ -2,12 +2,12 @@ import Link from "next/link";
 import AdminShell from "@/components/admin/AdminShell";
 import SupabaseNotice from "@/components/admin/SupabaseNotice";
 import WindowFrame from "@/components/os/WindowFrame";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/server";
+import { isSupabaseConfigured, requireAdmin } from "@/lib/supabase/server";
 
 export default async function AdminPage() {
   if (!isSupabaseConfigured()) return <SupabaseNotice />;
 
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   const [{ count: logs }, { count: videos }] = await Promise.all([
     supabase
       .from("logs")

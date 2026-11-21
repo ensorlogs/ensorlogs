@@ -2,10 +2,15 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { createClient, isSupabaseConfigured } from "@/lib/supabase/server";
+import {
+  createClient,
+  isSupabaseConfigured,
+  requireAdmin,
+} from "@/lib/supabase/server";
 import { createServiceClient } from "@/lib/supabase/admin";
 import { isBrevoConfigured, sendAccessEmail } from "@/lib/brevo";
 import { notifySubscribers } from "@/lib/push";
+import { isAdminEmail, normalizeEmail } from "@/lib/admin-emails";
 
 function slugify(text: string) {
   return text
@@ -18,8 +23,13 @@ function slugify(text: string) {
 
 export async function sendOtp(formData: FormData) {
   if (!isSupabaseConfigured()) redirect("/admin/login");
-  const email = String(formData.get("email") ?? "").trim();
+  const email = normalizeEmail(String(formData.get("email") ?? ""));
   const siteUrl = process.env.SITE_URL ?? "https://ensorlogs.com";
+
+  // Non-admin emails get the same "sent" screen, so the allowlist can't be probed.
+  if (!isAdminEmail(email)) {
+    redirect(`/admin/login?sent=1&email=${encodeURIComponent(email)}`);
+  }
 
   if (isBrevoConfigured()) {
     // Branded link sent through our own mailer (Brevo) — like ninamarquina.
@@ -53,14 +63,15 @@ export async function sendOtp(formData: FormData) {
 
 export async function verifyOtp(formData: FormData) {
   if (!isSupabaseConfigured()) redirect("/admin/login");
-  const email = String(formData.get("email") ?? "");
+  const email = normalizeEmail(String(formData.get("email") ?? ""));
   const supabase = await createClient();
-  const { error } = await supabase.auth.verifyOtp({
+  const { data, error } = await supabase.auth.verifyOtp({
     email,
     token: String(formData.get("token") ?? "").trim(),
     type: "email",
   });
-  if (error) {
+  if (error || !isAdminEmail(data.user?.email)) {
+    if (!error) await supabase.auth.signOut();
     redirect(`/admin/login?sent=1&code_error=1&email=${encodeURIComponent(email)}`);
   }
   redirect("/admin");
@@ -75,7 +86,7 @@ export async function signOut() {
 }
 
 export async function saveLog(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   const id = String(formData.get("id") ?? "");
   const titleEs = String(formData.get("title_es") ?? "").trim();
   const type = formData.get("type") === "story" ? "story" : "log";
@@ -150,14 +161,14 @@ export async function saveLog(formData: FormData) {
 }
 
 export async function deleteLog(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   await supabase.from("logs").delete().eq("id", String(formData.get("id")));
   revalidatePath("/admin/logs");
   redirect("/admin/logs");
 }
 
 export async function saveProject(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   const id = String(formData.get("id") ?? "");
   const name = String(formData.get("name") ?? "").trim();
   const published = formData.get("published") === "on";
@@ -235,7 +246,7 @@ export async function saveProject(formData: FormData) {
 }
 
 export async function deleteProject(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   await supabase.from("projects").delete().eq("id", String(formData.get("id")));
   revalidatePath("/admin/projects");
   revalidatePath("/proyectos");
@@ -243,7 +254,7 @@ export async function deleteProject(formData: FormData) {
 }
 
 export async function updateLeadStatus(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   const status = String(formData.get("status") ?? "new");
   await supabase
     .from("contacts")
@@ -254,7 +265,7 @@ export async function updateLeadStatus(formData: FormData) {
 }
 
 export async function deleteLead(formData: FormData) {
-  const supabase = await createClient();
+  const supabase = await requireAdmin();
   await supabase.from("contacts").delete().eq("id", String(formData.get("id")));
   revalidatePath("/admin/leads");
   redirect("/admin/leads");
